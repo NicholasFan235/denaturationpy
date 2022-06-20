@@ -1,0 +1,469 @@
+  pH             pKa/Em  n(slope) 1000*chi2
+NTR+A0016_        7.147     0.921     0.109
+HIS+A0016_        pKa or Em out of range   
+LYS+A0018_       11.204     0.402     6.903
+ASP-A0019_        2.514     0.699     0.520
+LYS+A0021_       13.223     0.492     0.121
+ARG+A0022_       13.859     0.754     0.946
+TYR-A0024_          pKa or Em out of range   
+CYS-A0025_          pKa or Em out of range   
+LYS+A0026_        8.773     0.527     0.296
+ARG+A0033_          pKa or Em out of range   
+HIS+A0035_        5.754     0.633     2.273
+ASP-A0037_        2.211     0.940     0.010
+ARG+A0039_       12.383     0.818     0.122
+ASP-A0041_        pKa or Em out of range   
+ARG+A0044_        pKa or Em out of range   
+GLU-A0045_        4.114     0.874     0.428
+LYS+A0046_        8.718     0.826     3.421
+ASP-A0048_        pKa or Em out of range   
+HIS+A0050_        5.672     0.634     1.244
+LYS+A0052_       10.557     0.749     0.159
+GLU-A0058_        4.627     0.646     0.302
+GLU-A0059_        2.793     0.769     1.359
+ARG+A0060_       12.224     0.665     0.895
+LYS+A0066_       11.591     0.498     3.111
+ARG+A0072_       13.414     0.767     0.120
+TYR-A0073_       12.682     0.430     5.288
+LYS+A0077_       10.892     0.896     0.006
+GLU-A0078_        4.627     0.824     0.159
+ASP-A0079_        2.592     0.913     0.196
+ARG+A0081_       13.459     0.682     0.764
+LYS+A0086_       10.371     0.903     0.031
+ASP-A0090_        3.584     0.760     0.389
+GLU-A0091_        4.785     0.647     4.383
+CYS-A0092_        pKa or Em out of range   
+GLU-A0096_        pKa or Em out of range   
+ARG+A0097_       12.715     0.490     1.280
+GLU-A0099_        2.295     0.822     0.322
+TYR-A0103_        pKa or Em out of range   
+TYR-A0106_          pKa or Em out of range   
+ARG+A0107_        pKa or Em out of range   
+ARG+A0109_       13.393     0.766     0.007
+LYS+A0110_        3.776     0.598     2.795
+TYR-A0111_        pKa or Em out of range   
+TYR-A0115_       11.844     0.548     4.579
+LYS+A0119_        9.369     0.735     0.232
+ARG+A0120_       12.637     0.832     0.095
+TYR-A0124_       10.188     0.720     1.863
+LYS+A0125_        9.396     0.495     4.755
+LYS+A0129_        9.797     0.534     4.074
+LYS+A0135_        7.378     0.440    16.651
+LYS+A0145_       10.483     0.814     0.051
+CTR-A0145_        2.837     0.860     0.279
+NTR+B0016_        6.935     0.885     0.178
+HIS+B0016_        pKa or Em out of range   
+LYS+B0018_       10.347     0.489     7.104
+ASP-B0019_        2.403     0.652     0.600
+LYS+B0021_       13.475     0.597     0.173
+ARG+B0022_       13.982     0.703     0.039
+TYR-B0024_          pKa or Em out of range   
+CYS-B0025_          pKa or Em out of range   
+LYS+B0026_        8.401     0.608     2.023
+ARG+B0033_        pKa or Em out of range   
+HIS+B0035_        5.932     0.961     0.106
+ASP-B0037_        2.267     0.940     0.055
+ARG+B0039_        pKa or Em out of range   
+ASP-B0041_        pKa or Em out of range   
+ARG+B0044_          pKa or Em out of range   
+GLU-B0045_        2.690     0.864     0.159
+LYS+B0046_        8.553     0.883     1.942
+ASP-B0048_        1.211     0.826     0.029
+HIS+B0050_          pKa or Em out of range   
+LYS+B0052_       10.426     0.794     0.362
+GLU-B0058_        4.397     0.684     0.244
+GLU-B0059_        2.430     0.745     0.608
+ARG+B0060_       13.033     0.599     0.421
+LYS+B0066_       11.821     0.502     4.559
+ARG+B0072_       12.966     0.825     0.041
+TYR-B0073_       12.984     0.436     1.507
+LYS+B0077_       10.957     0.787     0.160
+GLU-B0078_        4.234     0.884     0.402
+ASP-B0079_        2.225     0.874     0.081
+ARG+B0081_       13.023     0.690     0.855
+LYS+B0086_       10.304     0.917     0.145
+ASP-B0090_        2.928     0.797     0.222
+GLU-B0091_        4.992     0.810     1.605
+CYS-B0092_          pKa or Em out of range   
+GLU-B0096_        pKa or Em out of range   
+ARG+B0097_        pKa or Em out of range   
+GLU-B0099_        pKa or Em out of range   
+TYR-B0103_        pKa or Em out of range   
+TYR-B0106_          pKa or Em out of range   
+ARG+B0107_        pKa or Em out of range   
+ARG+B0109_       13.466     0.712     0.086
+LYS+B0110_       11.563     0.690     0.298
+TYR-B0111_       12.769     0.558     1.125
+TYR-B0115_        pKa or Em out of range   
+LYS+B0119_        9.391     0.605     0.330
+ARG+B0120_       12.996     0.768     0.033
+TYR-B0124_       10.272     0.617     3.021
+LYS+B0125_       10.187     0.351     9.184
+LYS+B0129_        9.131     0.415    13.390
+LYS+B0135_        4.770     0.611     0.802
+LYS+B0145_       10.540     0.821     0.024
+CTR-B0145_        2.885     0.801     0.073
+NTR+C0016_        6.300     0.802     0.055
+HIS+C0016_        pKa or Em out of range   
+LYS+C0018_       12.255     0.481     1.639
+ASP-C0019_        2.005     0.727     0.574
+LYS+C0021_       11.827     0.575     0.120
+ARG+C0022_       13.640     0.758     0.796
+TYR-C0024_          pKa or Em out of range   
+CYS-C0025_          pKa or Em out of range   
+LYS+C0026_        8.437     0.483     0.582
+ARG+C0033_        pKa or Em out of range   
+HIS+C0035_        4.928     0.561     2.004
+ASP-C0037_        1.665     0.851     0.194
+ARG+C0039_       12.705     0.799     0.317
+ASP-C0041_        0.753     0.888     0.302
+ARG+C0044_       12.603     0.733     0.249
+GLU-C0045_        4.026     0.903     0.250
+LYS+C0046_        8.023     0.906     0.955
+ASP-C0048_        pKa or Em out of range   
+HIS+C0050_        5.724     0.574     7.320
+LYS+C0052_       10.366     0.747     0.389
+GLU-C0058_        4.600     0.647     1.757
+GLU-C0059_        2.010     0.665     0.301
+ARG+C0060_       12.933     0.547     0.391
+LYS+C0066_       10.362     0.670     1.723
+ARG+C0072_       13.110     0.810     0.089
+TYR-C0073_       13.529     0.655     1.663
+LYS+C0077_       10.955     0.814     0.216
+GLU-C0078_        3.878     0.628     0.319
+ASP-C0079_        2.513     0.764     0.317
+ARG+C0081_       13.963     0.673     0.288
+LYS+C0086_       10.223     0.914     0.139
+ASP-C0090_        1.013     0.615     1.085
+GLU-C0091_        4.107     0.625     2.228
+CYS-C0092_          pKa or Em out of range   
+GLU-C0096_        pKa or Em out of range   
+ARG+C0097_        pKa or Em out of range   
+GLU-C0099_        0.839     0.622     1.037
+TYR-C0103_        pKa or Em out of range   
+TYR-C0106_          pKa or Em out of range   
+ARG+C0107_        pKa or Em out of range   
+ARG+C0109_        pKa or Em out of range   
+LYS+C0110_        pKa or Em out of range   
+TYR-C0111_        pKa or Em out of range   
+TYR-C0115_       12.045     0.453     6.893
+LYS+C0119_        9.879     0.617     0.331
+ARG+C0120_          pKa or Em out of range   
+TYR-C0124_        9.774     0.658     1.965
+LYS+C0125_       10.302     0.465     6.045
+LYS+C0129_        9.395     0.525     5.476
+LYS+C0135_        8.429     0.361     6.673
+LYS+C0145_       10.399     0.826     0.071
+CTR-C0145_        2.638     0.839     0.135
+NTR+D0016_        6.160     0.843     0.341
+HIS+D0016_          pKa or Em out of range   
+LYS+D0018_        pKa or Em out of range   
+ASP-D0019_        1.267     0.674     0.430
+LYS+D0021_       12.029     0.592     0.103
+ARG+D0022_        pKa or Em out of range   
+TYR-D0024_          pKa or Em out of range   
+CYS-D0025_          pKa or Em out of range   
+LYS+D0026_        8.922     0.487     0.626
+ARG+D0033_        pKa or Em out of range   
+HIS+D0035_        4.983     0.595     1.996
+ASP-D0037_        1.100     0.895     0.183
+ARG+D0039_       13.036     0.808     0.213
+ASP-D0041_        1.444     0.761     0.895
+ARG+D0044_       12.621     0.784     0.140
+GLU-D0045_        4.020     0.923     0.020
+LYS+D0046_        8.326     0.895     0.984
+ASP-D0048_        0.353     0.818     0.271
+HIS+D0050_        5.719     0.578     6.933
+LYS+D0052_       10.325     0.697     0.145
+GLU-D0058_        4.385     0.623     1.940
+GLU-D0059_        2.861     0.753     0.456
+ARG+D0060_       11.976     0.693     0.673
+LYS+D0066_       10.405     0.518     2.119
+ARG+D0072_       13.197     0.768     0.213
+TYR-D0073_       13.893     0.510     2.237
+LYS+D0077_       10.902     0.848     0.018
+GLU-D0078_        4.821     0.862     0.674
+ASP-D0079_        3.188     0.920     0.096
+ARG+D0081_       13.642     0.816     0.765
+LYS+D0086_       10.143     0.816     0.079
+ASP-D0090_        1.539     0.947     0.065
+GLU-D0091_        4.346     0.827     0.366
+CYS-D0092_        pKa or Em out of range   
+GLU-D0096_        pKa or Em out of range   
+ARG+D0097_        pKa or Em out of range   
+GLU-D0099_        2.766     0.794     0.157
+TYR-D0103_        pKa or Em out of range   
+TYR-D0106_          pKa or Em out of range   
+ARG+D0107_        pKa or Em out of range   
+ARG+D0109_       13.121     0.758     0.252
+LYS+D0110_       11.419     0.894     0.161
+TYR-D0111_        pKa or Em out of range   
+TYR-D0115_       11.551     0.631     2.277
+LYS+D0119_        9.693     0.714     0.138
+ARG+D0120_          pKa or Em out of range   
+TYR-D0124_        9.850     0.786     0.704
+LYS+D0125_        9.956     0.480     5.313
+LYS+D0129_        9.692     0.550     3.015
+LYS+D0135_        8.241     0.378     2.983
+LYS+D0145_       10.432     0.832     0.164
+CTR-D0145_        2.424     0.796     0.074
+NTR+E0150_        6.921     1.006     0.183
+LYS+E0151_        pKa or Em out of range   
+ARG+E0152_       13.034     0.932     0.131
+TYR-E0155_       10.641     0.908     0.526
+GLU-E0160_        2.768     0.915     0.014
+LYS+E0161_          pKa or Em out of range   
+GLU-E0163_        4.414     0.841     0.040
+LYS+E0164_        8.927     0.423     1.167
+ARG+E0165_       12.558     0.872     0.033
+HIS+E0167_        2.021     0.708     0.572
+LYS+E0176_          pKa or Em out of range   
+ARG+E0178_          pKa or Em out of range   
+ARG+E0190_       13.884     0.745     0.029
+LYS+E0193_       10.408     0.707     0.138
+LYS+E0196_        9.894     0.855     0.666
+GLU-E0197_        pKa or Em out of range   
+LYS+E0199_       12.466     0.649     0.096
+GLU-E0201_        2.809     0.666     0.174
+HIS+E0202_        4.963     0.808     0.377
+ARG+E0203_          pKa or Em out of range   
+TYR-E0207_       11.964     0.534     0.966
+LYS+E0208_        pKa or Em out of range   
+ARG+E0210_       11.682     0.736     0.222
+HIS+E0213_          pKa or Em out of range   
+GLU-E0219_          pKa or Em out of range   
+ASP-E0225_        pKa or Em out of range   
+LYS+E0226_       11.434     0.761     0.313
+TYR-E0229_          pKa or Em out of range   
+GLU-E0234_        5.208     0.900     0.249
+GLU-E0236_        2.741     0.933     0.081
+TYR-E0237_        8.658     0.902     2.456
+HIS+E0242_        5.068     0.818     0.094
+TYR-E0244_        pKa or Em out of range   
+HIS+E0245_        pKa or Em out of range   
+ASP-E0247_        0.802     0.765     0.093
+GLU-E0250_        3.196     0.781     0.054
+ARG+E0251_          pKa or Em out of range   
+HIS+E0254_        4.554     0.549     0.615
+ARG+E0255_       13.378     0.562     0.120
+CTR-E0267_        4.137     0.817     0.097
+NTR+E0273_        8.806     1.032     0.037
+ASP-E0273_        1.993     0.970     0.081
+GLU-E0275_        4.934     0.874     1.021
+LYS+E0279_       10.788     0.515     3.380
+TYR-E0281_       12.474     0.479     2.482
+ASP-E0283_          pKa or Em out of range   
+HIS+E0287_        5.413     0.615     3.806
+LYS+E0292_       12.005     0.781     0.532
+HIS+E0293_        6.553     0.756     0.997
+CTR-E0294_        3.383     0.796     0.806
+NTR+E0307_        5.307     0.800     0.162
+TYR-E0308_        8.925     0.975     0.026
+LYS+E0310_       11.010     0.804     0.599
+LYS+E0313_       11.035     0.748     0.274
+ASP-E0321_        1.968     0.458    10.174
+LYS+E0322_       10.891     0.802     0.081
+GLU-E0323_        4.303     0.860     0.096
+GLU-E0325_        2.409     0.579     0.516
+TYR-E0328_       12.580     0.809     0.848
+ARG+E0330_       12.621     0.946     0.051
+GLU-E0335_        4.524     0.857     0.444
+ASP-E0336_        3.053     0.777     0.597
+GLU-E0339_        1.043     0.669     1.898
+TYR-E0340_          pKa or Em out of range   
+HIS+E0353_        4.979     0.623     0.182
+CTR-E0360_        4.316     0.861     0.096
+NTR+F0150_        7.254     1.041     0.032
+LYS+F0151_        0.949     1.037     0.012
+ARG+F0152_       12.819     0.912     0.374
+TYR-F0155_       10.438     0.908     0.378
+GLU-F0160_        2.359     0.776     0.383
+LYS+F0161_        2.253     0.622     0.286
+GLU-F0163_        4.499     0.813     0.244
+LYS+F0164_        9.609     0.571     0.641
+ARG+F0165_       12.699     0.910     0.009
+HIS+F0167_        0.624     0.533     2.010
+LYS+F0176_          pKa or Em out of range   
+ARG+F0178_          pKa or Em out of range   
+ARG+F0190_       11.798     0.889     0.127
+LYS+F0193_       10.117     0.687     1.368
+LYS+F0196_       10.415     0.790     0.140
+GLU-F0197_        3.575     0.901     0.131
+LYS+F0199_       11.374     0.860     0.060
+GLU-F0201_        3.363     0.871     0.107
+HIS+F0202_        5.000     0.830     0.856
+ARG+F0203_          pKa or Em out of range   
+TYR-F0207_       11.436     0.706     0.626
+LYS+F0208_       13.810     0.683     0.353
+ARG+F0210_       11.982     0.775     0.071
+HIS+F0213_          pKa or Em out of range   
+GLU-F0219_          pKa or Em out of range   
+ASP-F0225_        pKa or Em out of range   
+LYS+F0226_       11.343     0.770     0.415
+TYR-F0229_          pKa or Em out of range   
+GLU-F0234_        5.270     0.903     0.701
+GLU-F0236_        4.784     0.976     0.139
+TYR-F0237_          pKa or Em out of range   
+HIS+F0242_        5.040     0.755     0.237
+TYR-F0244_        pKa or Em out of range   
+HIS+F0245_        5.079     0.820     0.078
+ASP-F0247_        0.615     0.775     0.015
+GLU-F0250_        3.212     0.722     0.088
+ARG+F0251_          pKa or Em out of range   
+HIS+F0254_        4.699     0.527     1.583
+ARG+F0255_        pKa or Em out of range   
+CTR-F0271_        2.084     0.506    10.085
+NTR+F0273_        7.730     0.802    22.798
+ASP-F0273_        3.248     0.508     3.726
+GLU-F0275_        4.793     0.863     0.282
+LYS+F0279_       11.352     0.419    12.087
+TYR-F0281_       11.050     0.590     0.342
+ASP-F0283_          pKa or Em out of range   
+HIS+F0287_        5.341     0.623     5.055
+LYS+F0292_       13.032     0.810     0.415
+HIS+F0293_        6.485     0.697     1.133
+CTR-F0293_        2.778     0.808     0.216
+NTR+F0308_        6.243     0.731     0.439
+TYR-F0308_       11.178     0.913     0.059
+LYS+F0310_       11.186     0.854     0.368
+LYS+F0313_       11.273     0.796     0.110
+ASP-F0321_        1.527     0.432     6.077
+LYS+F0322_       10.882     0.821     0.078
+GLU-F0323_        4.061     0.805     0.039
+GLU-F0325_        2.514     0.564     0.894
+TYR-F0328_        pKa or Em out of range   
+ARG+F0330_       12.940     0.945     0.060
+GLU-F0335_        4.752     0.796     1.297
+ASP-F0336_        3.779     0.718     0.780
+GLU-F0339_        1.500     0.779     0.056
+TYR-F0340_        pKa or Em out of range   
+HIS+F0353_        5.463     0.663     0.345
+CTR-F0359_        4.455     0.917     0.043
+NTR+G0151_        6.722     0.955     0.080
+LYS+G0151_        7.490     0.881     3.009
+ARG+G0152_       12.905     1.005     0.039
+TYR-G0155_       10.058     0.956     0.099
+GLU-G0160_        1.986     0.902     0.026
+LYS+G0161_        9.472     0.817     0.113
+GLU-G0163_        4.274     0.936     0.153
+LYS+G0164_        7.412     0.315    15.748
+ARG+G0165_       12.831     0.761     0.281
+HIS+G0167_        0.965     0.655     0.674
+LYS+G0176_          pKa or Em out of range   
+ARG+G0178_          pKa or Em out of range   
+ARG+G0190_       13.021     0.899     0.054
+LYS+G0193_       10.620     0.733     0.833
+LYS+G0196_       10.171     0.806     0.916
+GLU-G0197_        3.499     0.855     0.321
+LYS+G0199_       11.206     0.805     0.171
+GLU-G0201_        3.302     0.846     0.260
+HIS+G0202_        5.121     0.869     0.462
+ARG+G0203_       13.752     0.615     0.183
+TYR-G0207_       11.650     0.726     0.039
+LYS+G0208_        pKa or Em out of range   
+ARG+G0210_       11.793     0.797     0.109
+HIS+G0213_        pKa or Em out of range   
+GLU-G0219_        pKa or Em out of range   
+ASP-G0225_        1.517     0.789     0.020
+LYS+G0226_       11.392     0.721     0.047
+TYR-G0229_          pKa or Em out of range   
+GLU-G0234_        4.431     0.895     0.298
+GLU-G0236_        3.946     0.999     0.006
+TYR-G0237_        pKa or Em out of range   
+HIS+G0242_        5.564     0.859     0.061
+TYR-G0244_        pKa or Em out of range   
+HIS+G0245_          pKa or Em out of range   
+ASP-G0247_        pKa or Em out of range   
+GLU-G0250_        3.083     0.747     0.023
+ARG+G0251_          pKa or Em out of range   
+HIS+G0254_        4.250     0.526     0.312
+ARG+G0255_       13.332     0.506     0.272
+ASP-G0273_        4.410     0.778     0.612
+GLU-G0275_        5.045     0.820     0.523
+LYS+G0279_       11.743     0.387     9.510
+TYR-G0281_       10.982     0.543     2.034
+ASP-G0283_          pKa or Em out of range   
+HIS+G0287_        4.355     0.478     0.886
+LYS+G0292_       12.224     0.766     0.490
+HIS+G0293_        6.287     0.754     0.236
+CTR-G0294_        3.017     0.829     0.095
+NTR+G0308_        7.653     0.867     0.163
+TYR-G0308_       11.825     0.791     0.028
+LYS+G0310_       11.005     0.829     0.538
+LYS+G0313_       11.110     0.731     0.701
+ASP-G0321_        6.025     0.578     5.289
+LYS+G0322_       10.845     0.812     0.045
+GLU-G0323_        4.191     0.873     0.468
+GLU-G0325_        1.981     0.742     0.081
+TYR-G0328_       12.625     0.773     0.314
+ARG+G0330_       13.421     0.899     0.002
+GLU-G0335_        4.549     0.825     0.698
+ASP-G0336_        3.444     0.808     0.958
+GLU-G0339_        1.182     0.751     0.366
+TYR-G0340_          pKa or Em out of range   
+HIS+G0353_        5.379     0.654     0.421
+CTR-G0363_        4.089     0.981     0.023
+NTR+H0151_        7.168     0.916     0.073
+LYS+H0151_        7.336     0.842     1.737
+ARG+H0152_       12.901     0.958     0.110
+TYR-H0155_       10.315     0.921     0.255
+GLU-H0160_        1.834     0.887     0.716
+LYS+H0161_        3.585     0.613     4.934
+GLU-H0163_        3.298     0.841     0.118
+LYS+H0164_        7.447     0.327     8.684
+ARG+H0165_       11.428     0.793     0.277
+HIS+H0167_        pKa or Em out of range   
+LYS+H0176_        6.475     0.550     4.248
+ARG+H0178_       11.294     0.686     0.750
+ARG+H0190_       13.013     0.948     0.102
+LYS+H0193_       10.225     0.776     0.492
+LYS+H0196_       10.446     0.907     0.010
+GLU-H0197_        3.787     0.893     0.399
+LYS+H0199_       13.751     0.961     0.014
+GLU-H0201_        1.861     0.995     0.059
+HIS+H0202_        5.253     0.939     0.183
+ARG+H0203_          pKa or Em out of range   
+TYR-H0207_       11.157     0.795     0.112
+LYS+H0208_       13.672     0.686     0.034
+ARG+H0210_       13.272     0.757     0.311
+HIS+H0213_        0.496     0.651     0.005
+GLU-H0219_        pKa or Em out of range   
+ASP-H0225_        pKa or Em out of range   
+LYS+H0226_       12.226     0.723     0.299
+TYR-H0229_          pKa or Em out of range   
+GLU-H0234_        4.264     0.938     0.278
+GLU-H0236_        4.127     1.005     0.037
+TYR-H0237_        pKa or Em out of range   
+HIS+H0242_        5.552     0.826     0.015
+TYR-H0244_        pKa or Em out of range   
+HIS+H0245_          pKa or Em out of range   
+ASP-H0247_        pKa or Em out of range   
+GLU-H0250_        3.095     0.760     0.044
+ARG+H0251_          pKa or Em out of range   
+HIS+H0254_        4.902     0.556     0.979
+ARG+H0255_       13.677     0.561     0.192
+ASP-H0273_        pKa or Em out of range   
+GLU-H0275_        3.127     0.643     0.405
+LYS+H0279_       11.022     0.445     4.053
+TYR-H0281_       10.898     0.501     3.717
+ASP-H0283_          pKa or Em out of range   
+HIS+H0287_        4.774     0.549     5.260
+LYS+H0292_       11.519     0.660     0.823
+HIS+H0293_        6.605     0.862     0.445
+CTR-H0294_        2.665     0.846     0.120
+NTR+H0307_        5.266     0.872     0.260
+TYR-H0308_       11.591     0.889     0.006
+LYS+H0310_       11.264     0.667     1.101
+LYS+H0313_       12.200     0.438     0.883
+ASP-H0321_        1.835     0.345     3.405
+LYS+H0322_       10.498     0.575     0.518
+GLU-H0323_        2.312     0.609     0.693
+GLU-H0325_        1.479     0.425     3.408
+TYR-H0328_        pKa or Em out of range   
+ARG+H0330_        pKa or Em out of range   
+GLU-H0335_        4.591     0.824     0.740
+ASP-H0336_        2.685     0.678     0.531
+GLU-H0339_        1.699     0.786     0.598
+TYR-H0340_          pKa or Em out of range   
+HIS+H0353_        5.402     0.661     0.215
+CTR-H0363_        2.167     0.791     0.131

@@ -1,0 +1,2349 @@
+===========================================================
+<<< MCCE Multi-Conformation Continuum Electrostatics >>>   
+-----------------------------------------------------------
+Version:        2.7                                        
+Home Page:      http://pka.engr.ccny.cuny.edu/~mcce        
+Support:        jmao@ccny.cuny.edu                         
+Developed by:   Junjun Mao, Yifan Song, Marilyn Gunner     
+===========================================================
+Last Updates:                                              
+   03/23/2011  Two coding enhancement added to MCCE2.3     
+               In memory parameter loading                 
+               energy lookup table in text, non-0 only     
+===========================================================
+Step 0. Loading parameters
+   Load run control file "run.prm"...
+   Done
+
+   Tentatively load local param file "new.tpl"...   No such file, ignore.
+   Done
+
+   Load parameters from directory "/home/sabsr3/mcce/param08" ... 
+   Done
+
+   Load linear free energy correction parameters from "/home/sabsr3/mcce/extra.tpl".../home/sabsr3/mcce/extra.tpl
+   File loaded.
+   Done
+
+Step 0 Done.
+
+Step 1. Test and format structral file
+   Read pdb file "prot.pdb"...
+   Done
+
+   Read name rule file "/home/sabsr3/mcce/name.txt"...
+   Done
+
+   Rename residue and atom names...
+   Done
+
+   Identify NTR and CTR...
+      Labeling "HIS A  16" as NTR
+      Labeling "HIS B  16" as NTR
+      Labeling "HIS C  16" as NTR
+      Labeling "HIS D  16" as NTR
+      Labeling "ASN E 150" as NTR
+      Labeling "ASP E 273" as NTR
+      Labeling "PRO E 307" as NTR
+      Labeling "ASN F 150" as NTR
+      Labeling "ASP F 273" as NTR
+      Labeling "TYR F 308" as NTR
+      Labeling "LYS G 151" as NTR
+      Labeling "TYR G 308" as NTR
+      Labeling "LYS H 151" as NTR
+      Labeling "PRO H 307" as NTR
+      Labeling "LYS A 145" as CTR
+      Labeling "LYS B 145" as CTR
+      Labeling "LYS C 145" as CTR
+      Labeling "LYS D 145" as CTR
+      Labeling "SER E 267" as CTR
+      Labeling "VAL E 294" as CTR
+      Labeling "LEU E 360" as CTR
+      Labeling "GLY F 271" as CTR
+      Labeling "HIS F 293" as CTR
+      Labeling "VAL F 359" as CTR
+      Labeling "VAL G 294" as CTR
+      Labeling "PRO G 363" as CTR
+      Labeling "VAL H 294" as CTR
+      Labeling "PRO H 363" as CTR
+   Done
+
+   Label backbone, sidechain and altLoc conformers...
+   Done
+
+   Load pdb lines into data structure...
+   Done
+
+   Strip water molecules with SAS >   5%...
+   Warning! assign_rad(): missing parameter(s), default value is used and saved in debug.log.
+        4 water/salt molecules were stripped off in this round
+        0 water/salt molecules were stripped off in this round
+   Total deleted HOH = 4.
+   Done
+
+   Check missing heavy atoms and complete altLoc conformers...
+   Missing heavy atom  N   of conf HISBK in "HIS A  16".
+   Missing heavy atom  CA  of conf HISBK in "HIS A  16".
+   Missing heavy atom  CG  of conf HIS01 in "HIS A  16".
+   Missing heavy atom  ND1 of conf HIS01 in "HIS A  16".
+   Missing heavy atom  CE1 of conf HIS01 in "HIS A  16".
+   Missing heavy atom  NE2 of conf HIS01 in "HIS A  16".
+   Missing heavy atom  CD2 of conf HIS01 in "HIS A  16".
+   Missing heavy atom  CG  of conf ARG01 in "ARG A  39".
+   Missing heavy atom  CD  of conf ARG01 in "ARG A  39".
+   Missing heavy atom  NE  of conf ARG01 in "ARG A  39".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG A  39".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG A  39".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG A  39".
+   Missing heavy atom  CG  of conf GLU01 in "GLU A  45".
+   Missing heavy atom  CD  of conf GLU01 in "GLU A  45".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU A  45".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU A  45".
+   Missing heavy atom  CG  of conf LYS01 in "LYS A  46".
+   Missing heavy atom  CD  of conf LYS01 in "LYS A  46".
+   Missing heavy atom  CE  of conf LYS01 in "LYS A  46".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS A  46".
+   Missing heavy atom  OG  of conf SER01 in "SER A  47".
+   Missing heavy atom  CG  of conf ARG01 in "ARG A  72".
+   Missing heavy atom  CD  of conf ARG01 in "ARG A  72".
+   Missing heavy atom  NE  of conf ARG01 in "ARG A  72".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG A  72".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG A  72".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG A  72".
+   Missing heavy atom  CG  of conf LYS01 in "LYS A  77".
+   Missing heavy atom  CD  of conf LYS01 in "LYS A  77".
+   Missing heavy atom  CE  of conf LYS01 in "LYS A  77".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS A  77".
+   Missing heavy atom  CG  of conf GLU01 in "GLU A  78".
+   Missing heavy atom  CD  of conf GLU01 in "GLU A  78".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU A  78".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU A  78".
+   Missing heavy atom  CG  of conf ARG01 in "ARG A  81".
+   Missing heavy atom  CD  of conf ARG01 in "ARG A  81".
+   Missing heavy atom  NE  of conf ARG01 in "ARG A  81".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG A  81".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG A  81".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG A  81".
+   Missing heavy atom  CG  of conf LYS01 in "LYS A  86".
+   Missing heavy atom  CD  of conf LYS01 in "LYS A  86".
+   Missing heavy atom  CE  of conf LYS01 in "LYS A  86".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS A  86".
+   Missing heavy atom  CG  of conf GLU01 in "GLU A  91".
+   Missing heavy atom  CD  of conf GLU01 in "GLU A  91".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU A  91".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU A  91".
+   Missing heavy atom  CG  of conf LYS01 in "LYS A 110".
+   Missing heavy atom  CD  of conf LYS01 in "LYS A 110".
+   Missing heavy atom  CE  of conf LYS01 in "LYS A 110".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS A 110".
+   Missing heavy atom  CG  of conf TRP01 in "TRP A 114".
+   Missing heavy atom  CD1 of conf TRP01 in "TRP A 114".
+   Missing heavy atom  CD2 of conf TRP01 in "TRP A 114".
+   Missing heavy atom  NE1 of conf TRP01 in "TRP A 114".
+   Missing heavy atom  CE2 of conf TRP01 in "TRP A 114".
+   Missing heavy atom  CE3 of conf TRP01 in "TRP A 114".
+   Missing heavy atom  CZ2 of conf TRP01 in "TRP A 114".
+   Missing heavy atom  CZ3 of conf TRP01 in "TRP A 114".
+   Missing heavy atom  CH2 of conf TRP01 in "TRP A 114".
+   Missing heavy atom  CG  of conf LYS01 in "LYS A 119".
+   Missing heavy atom  CD  of conf LYS01 in "LYS A 119".
+   Missing heavy atom  CE  of conf LYS01 in "LYS A 119".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS A 119".
+   Missing heavy atom  CG  of conf ARG01 in "ARG A 120".
+   Missing heavy atom  CD  of conf ARG01 in "ARG A 120".
+   Missing heavy atom  NE  of conf ARG01 in "ARG A 120".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG A 120".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG A 120".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG A 120".
+   Missing heavy atom  CG  of conf LEU01 in "LEU A 126".
+   Missing heavy atom  CD1 of conf LEU01 in "LEU A 126".
+   Missing heavy atom  CD2 of conf LEU01 in "LEU A 126".
+   Missing heavy atom  CG  of conf LYS01 in "LYS A 129".
+   Missing heavy atom  CD  of conf LYS01 in "LYS A 129".
+   Missing heavy atom  CE  of conf LYS01 in "LYS A 129".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS A 129".
+   Missing heavy atom  C   of conf LYSBK in "LYS A 145".
+   Missing heavy atom  O   of conf LYSBK in "LYS A 145".
+   Missing heavy atom  CG  of conf LYS01 in "LYS A 145".
+   Missing heavy atom  CD  of conf LYS01 in "LYS A 145".
+   Missing heavy atom  CE  of conf LYS01 in "LYS A 145".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS A 145".
+   Missing heavy atom  OXT of conf CTR01 in "CTR A 145".
+   Missing heavy atom  N   of conf HISBK in "HIS B  16".
+   Missing heavy atom  CA  of conf HISBK in "HIS B  16".
+   Missing heavy atom  CG  of conf HIS01 in "HIS B  16".
+   Missing heavy atom  ND1 of conf HIS01 in "HIS B  16".
+   Missing heavy atom  CE1 of conf HIS01 in "HIS B  16".
+   Missing heavy atom  NE2 of conf HIS01 in "HIS B  16".
+   Missing heavy atom  CD2 of conf HIS01 in "HIS B  16".
+   Missing heavy atom  CG  of conf LYS01 in "LYS B  46".
+   Missing heavy atom  CD  of conf LYS01 in "LYS B  46".
+   Missing heavy atom  CE  of conf LYS01 in "LYS B  46".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS B  46".
+   Missing heavy atom  CG  of conf HIS01 in "HIS B  50".
+   Missing heavy atom  ND1 of conf HIS01 in "HIS B  50".
+   Missing heavy atom  CE1 of conf HIS01 in "HIS B  50".
+   Missing heavy atom  NE2 of conf HIS01 in "HIS B  50".
+   Missing heavy atom  CD2 of conf HIS01 in "HIS B  50".
+   Missing heavy atom  CG  of conf LYS01 in "LYS B  52".
+   Missing heavy atom  CD  of conf LYS01 in "LYS B  52".
+   Missing heavy atom  CE  of conf LYS01 in "LYS B  52".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS B  52".
+   Missing heavy atom  CG  of conf LYS01 in "LYS B  77".
+   Missing heavy atom  CD  of conf LYS01 in "LYS B  77".
+   Missing heavy atom  CE  of conf LYS01 in "LYS B  77".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS B  77".
+   Missing heavy atom  CG  of conf GLU01 in "GLU B  78".
+   Missing heavy atom  CD  of conf GLU01 in "GLU B  78".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU B  78".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU B  78".
+   Missing heavy atom  CG  of conf ARG01 in "ARG B  81".
+   Missing heavy atom  CD  of conf ARG01 in "ARG B  81".
+   Missing heavy atom  NE  of conf ARG01 in "ARG B  81".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG B  81".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG B  81".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG B  81".
+   Missing heavy atom  CG  of conf LYS01 in "LYS B  86".
+   Missing heavy atom  CD  of conf LYS01 in "LYS B  86".
+   Missing heavy atom  CE  of conf LYS01 in "LYS B  86".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS B  86".
+   Missing heavy atom  CG  of conf GLU01 in "GLU B  91".
+   Missing heavy atom  CD  of conf GLU01 in "GLU B  91".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU B  91".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU B  91".
+   Missing heavy atom  CG  of conf LYS01 in "LYS B 110".
+   Missing heavy atom  CD  of conf LYS01 in "LYS B 110".
+   Missing heavy atom  CE  of conf LYS01 in "LYS B 110".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS B 110".
+   Missing heavy atom  CG  of conf TYR01 in "TYR B 111".
+   Missing heavy atom  CD1 of conf TYR01 in "TYR B 111".
+   Missing heavy atom  CD2 of conf TYR01 in "TYR B 111".
+   Missing heavy atom  CE1 of conf TYR01 in "TYR B 111".
+   Missing heavy atom  CE2 of conf TYR01 in "TYR B 111".
+   Missing heavy atom  CZ  of conf TYR01 in "TYR B 111".
+   Missing heavy atom  OH  of conf TYR01 in "TYR B 111".
+   Missing heavy atom  CG  of conf TRP01 in "TRP B 114".
+   Missing heavy atom  CD1 of conf TRP01 in "TRP B 114".
+   Missing heavy atom  CD2 of conf TRP01 in "TRP B 114".
+   Missing heavy atom  NE1 of conf TRP01 in "TRP B 114".
+   Missing heavy atom  CE2 of conf TRP01 in "TRP B 114".
+   Missing heavy atom  CE3 of conf TRP01 in "TRP B 114".
+   Missing heavy atom  CZ2 of conf TRP01 in "TRP B 114".
+   Missing heavy atom  CZ3 of conf TRP01 in "TRP B 114".
+   Missing heavy atom  CH2 of conf TRP01 in "TRP B 114".
+   Missing heavy atom  CG  of conf LYS01 in "LYS B 119".
+   Missing heavy atom  CD  of conf LYS01 in "LYS B 119".
+   Missing heavy atom  CE  of conf LYS01 in "LYS B 119".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS B 119".
+   Missing heavy atom  CG  of conf ARG01 in "ARG B 120".
+   Missing heavy atom  CD  of conf ARG01 in "ARG B 120".
+   Missing heavy atom  NE  of conf ARG01 in "ARG B 120".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG B 120".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG B 120".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG B 120".
+   Missing heavy atom  CG  of conf GLN01 in "GLN B 123".
+   Missing heavy atom  CD  of conf GLN01 in "GLN B 123".
+   Missing heavy atom  OE1 of conf GLN01 in "GLN B 123".
+   Missing heavy atom  NE2 of conf GLN01 in "GLN B 123".
+   Missing heavy atom  CG  of conf LEU01 in "LEU B 126".
+   Missing heavy atom  CD1 of conf LEU01 in "LEU B 126".
+   Missing heavy atom  CD2 of conf LEU01 in "LEU B 126".
+   Missing heavy atom  C   of conf LYSBK in "LYS B 145".
+   Missing heavy atom  O   of conf LYSBK in "LYS B 145".
+   Missing heavy atom  CG  of conf LYS01 in "LYS B 145".
+   Missing heavy atom  CD  of conf LYS01 in "LYS B 145".
+   Missing heavy atom  CE  of conf LYS01 in "LYS B 145".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS B 145".
+   Missing heavy atom  OXT of conf CTR01 in "CTR B 145".
+   Missing heavy atom  N   of conf HISBK in "HIS C  16".
+   Missing heavy atom  CA  of conf HISBK in "HIS C  16".
+   Missing heavy atom  CG  of conf HIS01 in "HIS C  16".
+   Missing heavy atom  ND1 of conf HIS01 in "HIS C  16".
+   Missing heavy atom  CE1 of conf HIS01 in "HIS C  16".
+   Missing heavy atom  NE2 of conf HIS01 in "HIS C  16".
+   Missing heavy atom  CD2 of conf HIS01 in "HIS C  16".
+   Missing heavy atom  CG  of conf HIS01 in "HIS C  35".
+   Missing heavy atom  ND1 of conf HIS01 in "HIS C  35".
+   Missing heavy atom  CE1 of conf HIS01 in "HIS C  35".
+   Missing heavy atom  NE2 of conf HIS01 in "HIS C  35".
+   Missing heavy atom  CD2 of conf HIS01 in "HIS C  35".
+   Missing heavy atom  CG  of conf ARG01 in "ARG C  39".
+   Missing heavy atom  CD  of conf ARG01 in "ARG C  39".
+   Missing heavy atom  NE  of conf ARG01 in "ARG C  39".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG C  39".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG C  39".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG C  39".
+   Missing heavy atom  CG  of conf GLU01 in "GLU C  45".
+   Missing heavy atom  CD  of conf GLU01 in "GLU C  45".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU C  45".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU C  45".
+   Missing heavy atom  CG  of conf LYS01 in "LYS C  46".
+   Missing heavy atom  CD  of conf LYS01 in "LYS C  46".
+   Missing heavy atom  CE  of conf LYS01 in "LYS C  46".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS C  46".
+   Missing heavy atom  OG  of conf SER01 in "SER C  69".
+   Missing heavy atom  CG  of conf GLU01 in "GLU C  78".
+   Missing heavy atom  CD  of conf GLU01 in "GLU C  78".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU C  78".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU C  78".
+   Missing heavy atom  CG  of conf ARG01 in "ARG C  81".
+   Missing heavy atom  CD  of conf ARG01 in "ARG C  81".
+   Missing heavy atom  NE  of conf ARG01 in "ARG C  81".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG C  81".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG C  81".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG C  81".
+   Missing heavy atom  CG  of conf LYS01 in "LYS C  86".
+   Missing heavy atom  CD  of conf LYS01 in "LYS C  86".
+   Missing heavy atom  CE  of conf LYS01 in "LYS C  86".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS C  86".
+   Missing heavy atom  CG  of conf ASN01 in "ASN C 101".
+   Missing heavy atom  OD1 of conf ASN01 in "ASN C 101".
+   Missing heavy atom  ND2 of conf ASN01 in "ASN C 101".
+   Missing heavy atom  CG  of conf ARG01 in "ARG C 120".
+   Missing heavy atom  CD  of conf ARG01 in "ARG C 120".
+   Missing heavy atom  NE  of conf ARG01 in "ARG C 120".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG C 120".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG C 120".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG C 120".
+   Missing heavy atom  CG  of conf LYS01 in "LYS C 129".
+   Missing heavy atom  CD  of conf LYS01 in "LYS C 129".
+   Missing heavy atom  CE  of conf LYS01 in "LYS C 129".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS C 129".
+   Missing heavy atom  C   of conf LYSBK in "LYS C 145".
+   Missing heavy atom  O   of conf LYSBK in "LYS C 145".
+   Missing heavy atom  CG  of conf LYS01 in "LYS C 145".
+   Missing heavy atom  CD  of conf LYS01 in "LYS C 145".
+   Missing heavy atom  CE  of conf LYS01 in "LYS C 145".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS C 145".
+   Missing heavy atom  OXT of conf CTR01 in "CTR C 145".
+   Missing heavy atom  N   of conf HISBK in "HIS D  16".
+   Missing heavy atom  CA  of conf HISBK in "HIS D  16".
+   Missing heavy atom  CG  of conf HIS01 in "HIS D  16".
+   Missing heavy atom  ND1 of conf HIS01 in "HIS D  16".
+   Missing heavy atom  CE1 of conf HIS01 in "HIS D  16".
+   Missing heavy atom  NE2 of conf HIS01 in "HIS D  16".
+   Missing heavy atom  CD2 of conf HIS01 in "HIS D  16".
+   Missing heavy atom  CG  of conf HIS01 in "HIS D  35".
+   Missing heavy atom  ND1 of conf HIS01 in "HIS D  35".
+   Missing heavy atom  CE1 of conf HIS01 in "HIS D  35".
+   Missing heavy atom  NE2 of conf HIS01 in "HIS D  35".
+   Missing heavy atom  CD2 of conf HIS01 in "HIS D  35".
+   Missing heavy atom  CG  of conf GLU01 in "GLU D  45".
+   Missing heavy atom  CD  of conf GLU01 in "GLU D  45".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU D  45".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU D  45".
+   Missing heavy atom  CG  of conf LYS01 in "LYS D  46".
+   Missing heavy atom  CD  of conf LYS01 in "LYS D  46".
+   Missing heavy atom  CE  of conf LYS01 in "LYS D  46".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS D  46".
+   Missing heavy atom  CG  of conf ASP01 in "ASP D  48".
+   Missing heavy atom  OD1 of conf ASP01 in "ASP D  48".
+   Missing heavy atom  OD2 of conf ASP01 in "ASP D  48".
+   Missing heavy atom  OG  of conf SER01 in "SER D  69".
+   Missing heavy atom  CG  of conf GLU01 in "GLU D  78".
+   Missing heavy atom  CD  of conf GLU01 in "GLU D  78".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU D  78".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU D  78".
+   Missing heavy atom  CG  of conf ARG01 in "ARG D  81".
+   Missing heavy atom  CD  of conf ARG01 in "ARG D  81".
+   Missing heavy atom  NE  of conf ARG01 in "ARG D  81".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG D  81".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG D  81".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG D  81".
+   Missing heavy atom  CG  of conf LYS01 in "LYS D  86".
+   Missing heavy atom  CD  of conf LYS01 in "LYS D  86".
+   Missing heavy atom  CE  of conf LYS01 in "LYS D  86".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS D  86".
+   Missing heavy atom  OG  of conf SER01 in "SER D  87".
+   Missing heavy atom  CG  of conf LYS01 in "LYS D 119".
+   Missing heavy atom  CD  of conf LYS01 in "LYS D 119".
+   Missing heavy atom  CE  of conf LYS01 in "LYS D 119".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS D 119".
+   Missing heavy atom  CG  of conf ARG01 in "ARG D 120".
+   Missing heavy atom  CD  of conf ARG01 in "ARG D 120".
+   Missing heavy atom  NE  of conf ARG01 in "ARG D 120".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG D 120".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG D 120".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG D 120".
+   Missing heavy atom  CG  of conf LYS01 in "LYS D 129".
+   Missing heavy atom  CD  of conf LYS01 in "LYS D 129".
+   Missing heavy atom  CE  of conf LYS01 in "LYS D 129".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS D 129".
+   Missing heavy atom  C   of conf LYSBK in "LYS D 145".
+   Missing heavy atom  O   of conf LYSBK in "LYS D 145".
+   Missing heavy atom  CG  of conf LYS01 in "LYS D 145".
+   Missing heavy atom  CD  of conf LYS01 in "LYS D 145".
+   Missing heavy atom  CE  of conf LYS01 in "LYS D 145".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS D 145".
+   Missing heavy atom  OXT of conf CTR01 in "CTR D 145".
+   Missing heavy atom  N   of conf ASNBK in "ASN E 150".
+   Missing heavy atom  CA  of conf ASNBK in "ASN E 150".
+   Missing heavy atom  CG  of conf ASN01 in "ASN E 150".
+   Missing heavy atom  OD1 of conf ASN01 in "ASN E 150".
+   Missing heavy atom  ND2 of conf ASN01 in "ASN E 150".
+   Missing heavy atom  CG  of conf LYS01 in "LYS E 151".
+   Missing heavy atom  CD  of conf LYS01 in "LYS E 151".
+   Missing heavy atom  CE  of conf LYS01 in "LYS E 151".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS E 151".
+   Missing heavy atom  CG  of conf GLU01 in "GLU E 160".
+   Missing heavy atom  CD  of conf GLU01 in "GLU E 160".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU E 160".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU E 160".
+   Missing heavy atom  CG  of conf LYS01 in "LYS E 161".
+   Missing heavy atom  CD  of conf LYS01 in "LYS E 161".
+   Missing heavy atom  CE  of conf LYS01 in "LYS E 161".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS E 161".
+   Missing heavy atom  CG  of conf GLU01 in "GLU E 163".
+   Missing heavy atom  CD  of conf GLU01 in "GLU E 163".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU E 163".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU E 163".
+   Missing heavy atom  CG  of conf ASN01 in "ASN E 184".
+   Missing heavy atom  OD1 of conf ASN01 in "ASN E 184".
+   Missing heavy atom  ND2 of conf ASN01 in "ASN E 184".
+   Missing heavy atom  CG  of conf ARG01 in "ARG E 210".
+   Missing heavy atom  CD  of conf ARG01 in "ARG E 210".
+   Missing heavy atom  NE  of conf ARG01 in "ARG E 210".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG E 210".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG E 210".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG E 210".
+   Missing heavy atom  CG  of conf ASN01 in "ASN E 211".
+   Missing heavy atom  OD1 of conf ASN01 in "ASN E 211".
+   Missing heavy atom  ND2 of conf ASN01 in "ASN E 211".
+   Missing heavy atom  CG  of conf GLN01 in "GLN E 212".
+   Missing heavy atom  CD  of conf GLN01 in "GLN E 212".
+   Missing heavy atom  OE1 of conf GLN01 in "GLN E 212".
+   Missing heavy atom  NE2 of conf GLN01 in "GLN E 212".
+   Missing heavy atom  CG  of conf HIS01 in "HIS E 213".
+   Missing heavy atom  ND1 of conf HIS01 in "HIS E 213".
+   Missing heavy atom  CE1 of conf HIS01 in "HIS E 213".
+   Missing heavy atom  NE2 of conf HIS01 in "HIS E 213".
+   Missing heavy atom  CD2 of conf HIS01 in "HIS E 213".
+   Missing heavy atom  CG  of conf GLU01 in "GLU E 234".
+   Missing heavy atom  CD  of conf GLU01 in "GLU E 234".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU E 234".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU E 234".
+   Missing heavy atom  C   of conf SERBK in "SER E 267".
+   Missing heavy atom  O   of conf SERBK in "SER E 267".
+   Missing heavy atom  OG  of conf SER01 in "SER E 267".
+   Missing heavy atom  OXT of conf CTR01 in "CTR E 267".
+   Missing heavy atom  N   of conf ASPBK in "ASP E 273".
+   Missing heavy atom  CA  of conf ASPBK in "ASP E 273".
+   Missing heavy atom  CG  of conf TYR01 in "TYR E 281".
+   Missing heavy atom  CD1 of conf TYR01 in "TYR E 281".
+   Missing heavy atom  CD2 of conf TYR01 in "TYR E 281".
+   Missing heavy atom  CE1 of conf TYR01 in "TYR E 281".
+   Missing heavy atom  CE2 of conf TYR01 in "TYR E 281".
+   Missing heavy atom  CZ  of conf TYR01 in "TYR E 281".
+   Missing heavy atom  OH  of conf TYR01 in "TYR E 281".
+   Missing heavy atom  CG  of conf LYS01 in "LYS E 292".
+   Missing heavy atom  CD  of conf LYS01 in "LYS E 292".
+   Missing heavy atom  CE  of conf LYS01 in "LYS E 292".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS E 292".
+   Missing heavy atom  CG  of conf HIS01 in "HIS E 293".
+   Missing heavy atom  ND1 of conf HIS01 in "HIS E 293".
+   Missing heavy atom  CE1 of conf HIS01 in "HIS E 293".
+   Missing heavy atom  NE2 of conf HIS01 in "HIS E 293".
+   Missing heavy atom  CD2 of conf HIS01 in "HIS E 293".
+   Missing heavy atom  C   of conf VALBK in "VAL E 294".
+   Missing heavy atom  O   of conf VALBK in "VAL E 294".
+   Missing heavy atom  CG1 of conf VAL01 in "VAL E 294".
+   Missing heavy atom  CG2 of conf VAL01 in "VAL E 294".
+   Missing heavy atom  OXT of conf CTR01 in "CTR E 294".
+   Missing heavy atom  N   of conf PROBK in "PRO E 307".
+   Missing heavy atom  CA  of conf PROBK in "PRO E 307".
+   Missing heavy atom  CG  of conf TYR01 in "TYR E 308".
+   Missing heavy atom  CD1 of conf TYR01 in "TYR E 308".
+   Missing heavy atom  CD2 of conf TYR01 in "TYR E 308".
+   Missing heavy atom  CE1 of conf TYR01 in "TYR E 308".
+   Missing heavy atom  CE2 of conf TYR01 in "TYR E 308".
+   Missing heavy atom  CZ  of conf TYR01 in "TYR E 308".
+   Missing heavy atom  OH  of conf TYR01 in "TYR E 308".
+   Missing heavy atom  CG  of conf LYS01 in "LYS E 310".
+   Missing heavy atom  CD  of conf LYS01 in "LYS E 310".
+   Missing heavy atom  CE  of conf LYS01 in "LYS E 310".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS E 310".
+   Missing heavy atom  CG  of conf LYS01 in "LYS E 322".
+   Missing heavy atom  CD  of conf LYS01 in "LYS E 322".
+   Missing heavy atom  CE  of conf LYS01 in "LYS E 322".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS E 322".
+   Missing heavy atom  CG  of conf GLU01 in "GLU E 323".
+   Missing heavy atom  CD  of conf GLU01 in "GLU E 323".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU E 323".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU E 323".
+   Missing heavy atom  CG  of conf ARG01 in "ARG E 330".
+   Missing heavy atom  CD  of conf ARG01 in "ARG E 330".
+   Missing heavy atom  NE  of conf ARG01 in "ARG E 330".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG E 330".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG E 330".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG E 330".
+   Missing heavy atom  CG  of conf ASN01 in "ASN E 331".
+   Missing heavy atom  OD1 of conf ASN01 in "ASN E 331".
+   Missing heavy atom  ND2 of conf ASN01 in "ASN E 331".
+   Missing heavy atom  CG1 of conf VAL01 in "VAL E 332".
+   Missing heavy atom  CG2 of conf VAL01 in "VAL E 332".
+   Missing heavy atom  OG1 of conf THR01 in "THR E 333".
+   Missing heavy atom  CG2 of conf THR01 in "THR E 333".
+   Missing heavy atom  CG  of conf PHE01 in "PHE E 334".
+   Missing heavy atom  CD1 of conf PHE01 in "PHE E 334".
+   Missing heavy atom  CD2 of conf PHE01 in "PHE E 334".
+   Missing heavy atom  CE1 of conf PHE01 in "PHE E 334".
+   Missing heavy atom  CE2 of conf PHE01 in "PHE E 334".
+   Missing heavy atom  CZ  of conf PHE01 in "PHE E 334".
+   Missing heavy atom  CG  of conf GLU01 in "GLU E 335".
+   Missing heavy atom  CD  of conf GLU01 in "GLU E 335".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU E 335".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU E 335".
+   Missing heavy atom  CG1 of conf VAL01 in "VAL E 359".
+   Missing heavy atom  CG2 of conf VAL01 in "VAL E 359".
+   Missing heavy atom  C   of conf LEUBK in "LEU E 360".
+   Missing heavy atom  O   of conf LEUBK in "LEU E 360".
+   Missing heavy atom  CG  of conf LEU01 in "LEU E 360".
+   Missing heavy atom  CD1 of conf LEU01 in "LEU E 360".
+   Missing heavy atom  CD2 of conf LEU01 in "LEU E 360".
+   Missing heavy atom  OXT of conf CTR01 in "CTR E 360".
+   Missing heavy atom  N   of conf ASNBK in "ASN F 150".
+   Missing heavy atom  CA  of conf ASNBK in "ASN F 150".
+   Missing heavy atom  CG  of conf ASN01 in "ASN F 150".
+   Missing heavy atom  OD1 of conf ASN01 in "ASN F 150".
+   Missing heavy atom  ND2 of conf ASN01 in "ASN F 150".
+   Missing heavy atom  CG  of conf LYS01 in "LYS F 151".
+   Missing heavy atom  CD  of conf LYS01 in "LYS F 151".
+   Missing heavy atom  CE  of conf LYS01 in "LYS F 151".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS F 151".
+   Missing heavy atom  CG  of conf GLU01 in "GLU F 160".
+   Missing heavy atom  CD  of conf GLU01 in "GLU F 160".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU F 160".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU F 160".
+   Missing heavy atom  CG  of conf LYS01 in "LYS F 161".
+   Missing heavy atom  CD  of conf LYS01 in "LYS F 161".
+   Missing heavy atom  CE  of conf LYS01 in "LYS F 161".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS F 161".
+   Missing heavy atom  CG  of conf GLU01 in "GLU F 163".
+   Missing heavy atom  CD  of conf GLU01 in "GLU F 163".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU F 163".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU F 163".
+   Missing heavy atom  CG  of conf ASN01 in "ASN F 184".
+   Missing heavy atom  OD1 of conf ASN01 in "ASN F 184".
+   Missing heavy atom  ND2 of conf ASN01 in "ASN F 184".
+   Missing heavy atom  CG  of conf ARG01 in "ARG F 210".
+   Missing heavy atom  CD  of conf ARG01 in "ARG F 210".
+   Missing heavy atom  NE  of conf ARG01 in "ARG F 210".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG F 210".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG F 210".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG F 210".
+   Missing heavy atom  CG  of conf GLN01 in "GLN F 212".
+   Missing heavy atom  CD  of conf GLN01 in "GLN F 212".
+   Missing heavy atom  OE1 of conf GLN01 in "GLN F 212".
+   Missing heavy atom  NE2 of conf GLN01 in "GLN F 212".
+   Missing heavy atom  CG  of conf HIS01 in "HIS F 213".
+   Missing heavy atom  ND1 of conf HIS01 in "HIS F 213".
+   Missing heavy atom  CE1 of conf HIS01 in "HIS F 213".
+   Missing heavy atom  NE2 of conf HIS01 in "HIS F 213".
+   Missing heavy atom  CD2 of conf HIS01 in "HIS F 213".
+   Missing heavy atom  CG  of conf GLU01 in "GLU F 234".
+   Missing heavy atom  CD  of conf GLU01 in "GLU F 234".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU F 234".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU F 234".
+   Missing heavy atom  CG  of conf GLU01 in "GLU F 236".
+   Missing heavy atom  CD  of conf GLU01 in "GLU F 236".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU F 236".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU F 236".
+   Missing heavy atom  OG  of conf SER01 in "SER F 267".
+   Missing heavy atom  CG1 of conf VAL01 in "VAL F 269".
+   Missing heavy atom  CG2 of conf VAL01 in "VAL F 269".
+   Missing heavy atom  CG1 of conf VAL01 in "VAL F 270".
+   Missing heavy atom  CG2 of conf VAL01 in "VAL F 270".
+   Missing heavy atom  O   of conf GLYBK in "GLY F 271".
+   Missing heavy atom  C   of conf GLYBK in "GLY F 271".
+   Missing heavy atom  OXT of conf CTR01 in "CTR F 271".
+   Missing heavy atom  N   of conf ASPBK in "ASP F 273".
+   Missing heavy atom  CA  of conf ASPBK in "ASP F 273".
+   Missing heavy atom  C   of conf HISBK in "HIS F 293".
+   Missing heavy atom  O   of conf HISBK in "HIS F 293".
+   Missing heavy atom  CG  of conf HIS01 in "HIS F 293".
+   Missing heavy atom  ND1 of conf HIS01 in "HIS F 293".
+   Missing heavy atom  CE1 of conf HIS01 in "HIS F 293".
+   Missing heavy atom  NE2 of conf HIS01 in "HIS F 293".
+   Missing heavy atom  CD2 of conf HIS01 in "HIS F 293".
+   Missing heavy atom  OXT of conf CTR01 in "CTR F 293".
+   Missing heavy atom  N   of conf TYRBK in "TYR F 308".
+   Missing heavy atom  CA  of conf TYRBK in "TYR F 308".
+   Missing heavy atom  CG  of conf TYR01 in "TYR F 308".
+   Missing heavy atom  CD1 of conf TYR01 in "TYR F 308".
+   Missing heavy atom  CD2 of conf TYR01 in "TYR F 308".
+   Missing heavy atom  CE1 of conf TYR01 in "TYR F 308".
+   Missing heavy atom  CE2 of conf TYR01 in "TYR F 308".
+   Missing heavy atom  CZ  of conf TYR01 in "TYR F 308".
+   Missing heavy atom  OH  of conf TYR01 in "TYR F 308".
+   Missing heavy atom  CG  of conf LYS01 in "LYS F 310".
+   Missing heavy atom  CD  of conf LYS01 in "LYS F 310".
+   Missing heavy atom  CE  of conf LYS01 in "LYS F 310".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS F 310".
+   Missing heavy atom  CG  of conf LYS01 in "LYS F 322".
+   Missing heavy atom  CD  of conf LYS01 in "LYS F 322".
+   Missing heavy atom  CE  of conf LYS01 in "LYS F 322".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS F 322".
+   Missing heavy atom  CG  of conf GLU01 in "GLU F 323".
+   Missing heavy atom  CD  of conf GLU01 in "GLU F 323".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU F 323".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU F 323".
+   Missing heavy atom  CG  of conf TYR01 in "TYR F 328".
+   Missing heavy atom  CD1 of conf TYR01 in "TYR F 328".
+   Missing heavy atom  CD2 of conf TYR01 in "TYR F 328".
+   Missing heavy atom  CE1 of conf TYR01 in "TYR F 328".
+   Missing heavy atom  CE2 of conf TYR01 in "TYR F 328".
+   Missing heavy atom  CZ  of conf TYR01 in "TYR F 328".
+   Missing heavy atom  OH  of conf TYR01 in "TYR F 328".
+   Missing heavy atom  CG1 of conf ILE01 in "ILE F 329".
+   Missing heavy atom  CG2 of conf ILE01 in "ILE F 329".
+   Missing heavy atom  CD1 of conf ILE01 in "ILE F 329".
+   Missing heavy atom  CG  of conf ARG01 in "ARG F 330".
+   Missing heavy atom  CD  of conf ARG01 in "ARG F 330".
+   Missing heavy atom  NE  of conf ARG01 in "ARG F 330".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG F 330".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG F 330".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG F 330".
+   Missing heavy atom  CG  of conf ASN01 in "ASN F 331".
+   Missing heavy atom  OD1 of conf ASN01 in "ASN F 331".
+   Missing heavy atom  ND2 of conf ASN01 in "ASN F 331".
+   Missing heavy atom  CG1 of conf VAL01 in "VAL F 332".
+   Missing heavy atom  CG2 of conf VAL01 in "VAL F 332".
+   Missing heavy atom  OG1 of conf THR01 in "THR F 333".
+   Missing heavy atom  CG2 of conf THR01 in "THR F 333".
+   Missing heavy atom  CG  of conf PHE01 in "PHE F 334".
+   Missing heavy atom  CD1 of conf PHE01 in "PHE F 334".
+   Missing heavy atom  CD2 of conf PHE01 in "PHE F 334".
+   Missing heavy atom  CE1 of conf PHE01 in "PHE F 334".
+   Missing heavy atom  CE2 of conf PHE01 in "PHE F 334".
+   Missing heavy atom  CZ  of conf PHE01 in "PHE F 334".
+   Missing heavy atom  CG  of conf GLU01 in "GLU F 335".
+   Missing heavy atom  CD  of conf GLU01 in "GLU F 335".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU F 335".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU F 335".
+   Missing heavy atom  CG  of conf TRP01 in "TRP F 356".
+   Missing heavy atom  CD1 of conf TRP01 in "TRP F 356".
+   Missing heavy atom  CD2 of conf TRP01 in "TRP F 356".
+   Missing heavy atom  NE1 of conf TRP01 in "TRP F 356".
+   Missing heavy atom  CE2 of conf TRP01 in "TRP F 356".
+   Missing heavy atom  CE3 of conf TRP01 in "TRP F 356".
+   Missing heavy atom  CZ2 of conf TRP01 in "TRP F 356".
+   Missing heavy atom  CZ3 of conf TRP01 in "TRP F 356".
+   Missing heavy atom  CH2 of conf TRP01 in "TRP F 356".
+   Missing heavy atom  OG1 of conf THR01 in "THR F 358".
+   Missing heavy atom  CG2 of conf THR01 in "THR F 358".
+   Missing heavy atom  C   of conf VALBK in "VAL F 359".
+   Missing heavy atom  O   of conf VALBK in "VAL F 359".
+   Missing heavy atom  CG1 of conf VAL01 in "VAL F 359".
+   Missing heavy atom  CG2 of conf VAL01 in "VAL F 359".
+   Missing heavy atom  OXT of conf CTR01 in "CTR F 359".
+   Missing heavy atom  N   of conf LYSBK in "LYS G 151".
+   Missing heavy atom  CA  of conf LYSBK in "LYS G 151".
+   Missing heavy atom  CG  of conf LYS01 in "LYS G 151".
+   Missing heavy atom  CD  of conf LYS01 in "LYS G 151".
+   Missing heavy atom  CE  of conf LYS01 in "LYS G 151".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS G 151".
+   Missing heavy atom  CG  of conf GLU01 in "GLU G 160".
+   Missing heavy atom  CD  of conf GLU01 in "GLU G 160".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU G 160".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU G 160".
+   Missing heavy atom  CG  of conf ARG01 in "ARG G 165".
+   Missing heavy atom  CD  of conf ARG01 in "ARG G 165".
+   Missing heavy atom  NE  of conf ARG01 in "ARG G 165".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG G 165".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG G 165".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG G 165".
+   Missing heavy atom  CG  of conf LYS01 in "LYS G 176".
+   Missing heavy atom  CD  of conf LYS01 in "LYS G 176".
+   Missing heavy atom  CE  of conf LYS01 in "LYS G 176".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS G 176".
+   Missing heavy atom  CG  of conf LYS01 in "LYS G 196".
+   Missing heavy atom  CD  of conf LYS01 in "LYS G 196".
+   Missing heavy atom  CE  of conf LYS01 in "LYS G 196".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS G 196".
+   Missing heavy atom  CG  of conf ARG01 in "ARG G 203".
+   Missing heavy atom  CD  of conf ARG01 in "ARG G 203".
+   Missing heavy atom  NE  of conf ARG01 in "ARG G 203".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG G 203".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG G 203".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG G 203".
+   Missing heavy atom  CG  of conf ARG01 in "ARG G 210".
+   Missing heavy atom  CD  of conf ARG01 in "ARG G 210".
+   Missing heavy atom  NE  of conf ARG01 in "ARG G 210".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG G 210".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG G 210".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG G 210".
+   Missing heavy atom  CG  of conf GLN01 in "GLN G 212".
+   Missing heavy atom  CD  of conf GLN01 in "GLN G 212".
+   Missing heavy atom  OE1 of conf GLN01 in "GLN G 212".
+   Missing heavy atom  NE2 of conf GLN01 in "GLN G 212".
+   Missing heavy atom  CG  of conf HIS01 in "HIS G 213".
+   Missing heavy atom  ND1 of conf HIS01 in "HIS G 213".
+   Missing heavy atom  CE1 of conf HIS01 in "HIS G 213".
+   Missing heavy atom  NE2 of conf HIS01 in "HIS G 213".
+   Missing heavy atom  CD2 of conf HIS01 in "HIS G 213".
+   Missing heavy atom  CG  of conf LYS01 in "LYS G 226".
+   Missing heavy atom  CD  of conf LYS01 in "LYS G 226".
+   Missing heavy atom  CE  of conf LYS01 in "LYS G 226".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS G 226".
+   Missing heavy atom  CG  of conf GLU01 in "GLU G 236".
+   Missing heavy atom  CD  of conf GLU01 in "GLU G 236".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU G 236".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU G 236".
+   Missing heavy atom  CG  of conf ASP01 in "ASP G 273".
+   Missing heavy atom  OD1 of conf ASP01 in "ASP G 273".
+   Missing heavy atom  OD2 of conf ASP01 in "ASP G 273".
+   Missing heavy atom  C   of conf VALBK in "VAL G 294".
+   Missing heavy atom  O   of conf VALBK in "VAL G 294".
+   Missing heavy atom  OXT of conf CTR01 in "CTR G 294".
+   Missing heavy atom  N   of conf TYRBK in "TYR G 308".
+   Missing heavy atom  CA  of conf TYRBK in "TYR G 308".
+   Missing heavy atom  CG  of conf TYR01 in "TYR G 308".
+   Missing heavy atom  CD1 of conf TYR01 in "TYR G 308".
+   Missing heavy atom  CD2 of conf TYR01 in "TYR G 308".
+   Missing heavy atom  CE1 of conf TYR01 in "TYR G 308".
+   Missing heavy atom  CE2 of conf TYR01 in "TYR G 308".
+   Missing heavy atom  CZ  of conf TYR01 in "TYR G 308".
+   Missing heavy atom  OH  of conf TYR01 in "TYR G 308".
+   Missing heavy atom  CG  of conf LYS01 in "LYS G 310".
+   Missing heavy atom  CD  of conf LYS01 in "LYS G 310".
+   Missing heavy atom  CE  of conf LYS01 in "LYS G 310".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS G 310".
+   Missing heavy atom  CG  of conf LYS01 in "LYS G 322".
+   Missing heavy atom  CD  of conf LYS01 in "LYS G 322".
+   Missing heavy atom  CE  of conf LYS01 in "LYS G 322".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS G 322".
+   Missing heavy atom  CG  of conf GLU01 in "GLU G 323".
+   Missing heavy atom  CD  of conf GLU01 in "GLU G 323".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU G 323".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU G 323".
+   Missing heavy atom  CG  of conf GLU01 in "GLU G 335".
+   Missing heavy atom  CD  of conf GLU01 in "GLU G 335".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU G 335".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU G 335".
+   Missing heavy atom  C   of conf PROBK in "PRO G 363".
+   Missing heavy atom  O   of conf PROBK in "PRO G 363".
+   Missing heavy atom  OXT of conf CTR01 in "CTR G 363".
+   Missing heavy atom  N   of conf LYSBK in "LYS H 151".
+   Missing heavy atom  CA  of conf LYSBK in "LYS H 151".
+   Missing heavy atom  CG  of conf LYS01 in "LYS H 151".
+   Missing heavy atom  CD  of conf LYS01 in "LYS H 151".
+   Missing heavy atom  CE  of conf LYS01 in "LYS H 151".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS H 151".
+   Missing heavy atom  CG  of conf GLU01 in "GLU H 160".
+   Missing heavy atom  CD  of conf GLU01 in "GLU H 160".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU H 160".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU H 160".
+   Missing heavy atom  CG  of conf LYS01 in "LYS H 161".
+   Missing heavy atom  CD  of conf LYS01 in "LYS H 161".
+   Missing heavy atom  CE  of conf LYS01 in "LYS H 161".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS H 161".
+   Missing heavy atom  CG  of conf ARG01 in "ARG H 165".
+   Missing heavy atom  CD  of conf ARG01 in "ARG H 165".
+   Missing heavy atom  NE  of conf ARG01 in "ARG H 165".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG H 165".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG H 165".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG H 165".
+   Missing heavy atom  CG  of conf LYS01 in "LYS H 176".
+   Missing heavy atom  CD  of conf LYS01 in "LYS H 176".
+   Missing heavy atom  CE  of conf LYS01 in "LYS H 176".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS H 176".
+   Missing heavy atom  CG  of conf LYS01 in "LYS H 196".
+   Missing heavy atom  CD  of conf LYS01 in "LYS H 196".
+   Missing heavy atom  CE  of conf LYS01 in "LYS H 196".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS H 196".
+   Missing heavy atom  CG  of conf GLU01 in "GLU H 197".
+   Missing heavy atom  CD  of conf GLU01 in "GLU H 197".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU H 197".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU H 197".
+   Missing heavy atom  CG  of conf LYS01 in "LYS H 199".
+   Missing heavy atom  CD  of conf LYS01 in "LYS H 199".
+   Missing heavy atom  CE  of conf LYS01 in "LYS H 199".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS H 199".
+   Missing heavy atom  CG  of conf ARG01 in "ARG H 210".
+   Missing heavy atom  CD  of conf ARG01 in "ARG H 210".
+   Missing heavy atom  NE  of conf ARG01 in "ARG H 210".
+   Missing heavy atom  CZ  of conf ARG01 in "ARG H 210".
+   Missing heavy atom  NH1 of conf ARG01 in "ARG H 210".
+   Missing heavy atom  NH2 of conf ARG01 in "ARG H 210".
+   Missing heavy atom  CG  of conf ASN01 in "ASN H 211".
+   Missing heavy atom  OD1 of conf ASN01 in "ASN H 211".
+   Missing heavy atom  ND2 of conf ASN01 in "ASN H 211".
+   Missing heavy atom  CG  of conf GLN01 in "GLN H 212".
+   Missing heavy atom  CD  of conf GLN01 in "GLN H 212".
+   Missing heavy atom  OE1 of conf GLN01 in "GLN H 212".
+   Missing heavy atom  NE2 of conf GLN01 in "GLN H 212".
+   Missing heavy atom  CG  of conf GLU01 in "GLU H 236".
+   Missing heavy atom  CD  of conf GLU01 in "GLU H 236".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU H 236".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU H 236".
+   Missing heavy atom  CG  of conf HIS01 in "HIS H 245".
+   Missing heavy atom  ND1 of conf HIS01 in "HIS H 245".
+   Missing heavy atom  CE1 of conf HIS01 in "HIS H 245".
+   Missing heavy atom  NE2 of conf HIS01 in "HIS H 245".
+   Missing heavy atom  CD2 of conf HIS01 in "HIS H 245".
+   Missing heavy atom  CG1 of conf VAL01 in "VAL H 269".
+   Missing heavy atom  CG2 of conf VAL01 in "VAL H 269".
+   Missing heavy atom  CG  of conf HIS01 in "HIS H 293".
+   Missing heavy atom  ND1 of conf HIS01 in "HIS H 293".
+   Missing heavy atom  CE1 of conf HIS01 in "HIS H 293".
+   Missing heavy atom  NE2 of conf HIS01 in "HIS H 293".
+   Missing heavy atom  CD2 of conf HIS01 in "HIS H 293".
+   Missing heavy atom  C   of conf VALBK in "VAL H 294".
+   Missing heavy atom  O   of conf VALBK in "VAL H 294".
+   Missing heavy atom  OXT of conf CTR01 in "CTR H 294".
+   Missing heavy atom  N   of conf PROBK in "PRO H 307".
+   Missing heavy atom  CA  of conf PROBK in "PRO H 307".
+   Missing heavy atom  CG  of conf TYR01 in "TYR H 308".
+   Missing heavy atom  CD1 of conf TYR01 in "TYR H 308".
+   Missing heavy atom  CD2 of conf TYR01 in "TYR H 308".
+   Missing heavy atom  CE1 of conf TYR01 in "TYR H 308".
+   Missing heavy atom  CE2 of conf TYR01 in "TYR H 308".
+   Missing heavy atom  CZ  of conf TYR01 in "TYR H 308".
+   Missing heavy atom  OH  of conf TYR01 in "TYR H 308".
+   Missing heavy atom  CG  of conf LYS01 in "LYS H 310".
+   Missing heavy atom  CD  of conf LYS01 in "LYS H 310".
+   Missing heavy atom  CE  of conf LYS01 in "LYS H 310".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS H 310".
+   Missing heavy atom  CG  of conf ASN01 in "ASN H 318".
+   Missing heavy atom  OD1 of conf ASN01 in "ASN H 318".
+   Missing heavy atom  ND2 of conf ASN01 in "ASN H 318".
+   Missing heavy atom  CG  of conf LYS01 in "LYS H 322".
+   Missing heavy atom  CD  of conf LYS01 in "LYS H 322".
+   Missing heavy atom  CE  of conf LYS01 in "LYS H 322".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS H 322".
+   Missing heavy atom  CG  of conf GLU01 in "GLU H 323".
+   Missing heavy atom  CD  of conf GLU01 in "GLU H 323".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU H 323".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU H 323".
+   Missing heavy atom  CG  of conf PHE01 in "PHE H 334".
+   Missing heavy atom  CD1 of conf PHE01 in "PHE H 334".
+   Missing heavy atom  CD2 of conf PHE01 in "PHE H 334".
+   Missing heavy atom  CE1 of conf PHE01 in "PHE H 334".
+   Missing heavy atom  CE2 of conf PHE01 in "PHE H 334".
+   Missing heavy atom  CZ  of conf PHE01 in "PHE H 334".
+   Missing heavy atom  CG  of conf GLU01 in "GLU H 335".
+   Missing heavy atom  CD  of conf GLU01 in "GLU H 335".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU H 335".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU H 335".
+   Missing heavy atom  CG1 of conf VAL01 in "VAL H 359".
+   Missing heavy atom  CG2 of conf VAL01 in "VAL H 359".
+   Missing heavy atom  C   of conf PROBK in "PRO H 363".
+   Missing heavy atom  O   of conf PROBK in "PRO H 363".
+   Missing heavy atom  OXT of conf CTR01 in "CTR H 363".
+   Missing heavy atoms detected.
+   Ignore warning messages if they are in the terminal residues
+   Done
+
+   Find distance clash (<2.000)...
+   d= 1.54: " CA  NTR A  16" to " CB  HIS A  16"
+   d= 1.54: " CA  NTR B  16" to " CB  HIS B  16"
+   d= 1.53: " CA  NTR C  16" to " CB  HIS C  16"
+   d= 1.53: " CA  NTR D  16" to " CB  HIS D  16"
+   d= 1.53: " CA  NTR E 150" to " CB  ASN E 150"
+   d= 1.53: " CA  NTR E 273" to " CB  ASP E 273"
+   d= 1.53: " CA  NTR E 307" to " CB  PRO E 307"
+   d= 1.48: " N   NTR E 307" to " CD  PRO E 307"
+   d= 1.54: " CA  NTR F 150" to " CB  ASN F 150"
+   d= 1.53: " CA  NTR F 273" to " CB  ASP F 273"
+   d= 1.53: " CA  NTR F 308" to " CB  TYR F 308"
+   d= 1.53: " CA  NTR G 151" to " CB  LYS G 151"
+   d= 1.53: " CA  NTR G 308" to " CB  TYR G 308"
+   d= 1.53: " CA  NTR H 151" to " CB  LYS H 151"
+   d= 1.53: " CA  NTR H 307" to " CB  PRO H 307"
+   d= 1.48: " N   NTR H 307" to " CD  PRO H 307"
+   Done
+
+   Make connectivity network ...
+   Done.
+
+    Warning! May add heavy atom  CG  onto residue "HIS A0016"
+    Warning! May add heavy atom  ND1 onto residue "HIS A0016"
+    Warning! May add heavy atom  CE1 onto residue "HIS A0016"
+    Warning! May add heavy atom  NE2 onto residue "HIS A0016"
+    Warning! May add heavy atom  CD2 onto residue "HIS A0016"
+    Warning! May add heavy atom  CG  onto residue "ARG A0039"
+    Warning! May add heavy atom  CD  onto residue "ARG A0039"
+    Warning! May add heavy atom  NE  onto residue "ARG A0039"
+    Warning! May add heavy atom  CZ  onto residue "ARG A0039"
+    Warning! May add heavy atom  NH1 onto residue "ARG A0039"
+    Warning! May add heavy atom  NH2 onto residue "ARG A0039"
+    Warning! May add heavy atom  CG  onto residue "GLU A0045"
+    Warning! May add heavy atom  CD  onto residue "GLU A0045"
+    Warning! May add heavy atom  OE1 onto residue "GLU A0045"
+    Warning! May add heavy atom  OE2 onto residue "GLU A0045"
+    Warning! May add heavy atom  CG  onto residue "LYS A0046"
+    Warning! May add heavy atom  CD  onto residue "LYS A0046"
+    Warning! May add heavy atom  CE  onto residue "LYS A0046"
+    Warning! May add heavy atom  NZ  onto residue "LYS A0046"
+    Warning! May add heavy atom  OG  onto residue "SER A0047"
+    Warning! May add heavy atom  CG  onto residue "ARG A0072"
+    Warning! May add heavy atom  CD  onto residue "ARG A0072"
+    Warning! May add heavy atom  NE  onto residue "ARG A0072"
+    Warning! May add heavy atom  CZ  onto residue "ARG A0072"
+    Warning! May add heavy atom  NH1 onto residue "ARG A0072"
+    Warning! May add heavy atom  NH2 onto residue "ARG A0072"
+    Warning! May add heavy atom  CG  onto residue "LYS A0077"
+    Warning! May add heavy atom  CD  onto residue "LYS A0077"
+    Warning! May add heavy atom  CE  onto residue "LYS A0077"
+    Warning! May add heavy atom  NZ  onto residue "LYS A0077"
+    Warning! May add heavy atom  CG  onto residue "GLU A0078"
+    Warning! May add heavy atom  CD  onto residue "GLU A0078"
+    Warning! May add heavy atom  OE1 onto residue "GLU A0078"
+    Warning! May add heavy atom  OE2 onto residue "GLU A0078"
+    Warning! May add heavy atom  CG  onto residue "ARG A0081"
+    Warning! May add heavy atom  CD  onto residue "ARG A0081"
+    Warning! May add heavy atom  NE  onto residue "ARG A0081"
+    Warning! May add heavy atom  CZ  onto residue "ARG A0081"
+    Warning! May add heavy atom  NH1 onto residue "ARG A0081"
+    Warning! May add heavy atom  NH2 onto residue "ARG A0081"
+    Warning! May add heavy atom  CG  onto residue "LYS A0086"
+    Warning! May add heavy atom  CD  onto residue "LYS A0086"
+    Warning! May add heavy atom  CE  onto residue "LYS A0086"
+    Warning! May add heavy atom  NZ  onto residue "LYS A0086"
+    Warning! May add heavy atom  CG  onto residue "GLU A0091"
+    Warning! May add heavy atom  CD  onto residue "GLU A0091"
+    Warning! May add heavy atom  OE1 onto residue "GLU A0091"
+    Warning! May add heavy atom  OE2 onto residue "GLU A0091"
+    Warning! May add heavy atom  CG  onto residue "LYS A0110"
+    Warning! May add heavy atom  CD  onto residue "LYS A0110"
+    Warning! May add heavy atom  CE  onto residue "LYS A0110"
+    Warning! May add heavy atom  NZ  onto residue "LYS A0110"
+    Warning! May add heavy atom  CG  onto residue "TRP A0114"
+    Warning! May add heavy atom  CD1 onto residue "TRP A0114"
+    Warning! May add heavy atom  CD2 onto residue "TRP A0114"
+    Warning! May add heavy atom  NE1 onto residue "TRP A0114"
+    Warning! May add heavy atom  CE2 onto residue "TRP A0114"
+    Warning! May add heavy atom  CE3 onto residue "TRP A0114"
+    Warning! May add heavy atom  CZ2 onto residue "TRP A0114"
+    Warning! May add heavy atom  CZ3 onto residue "TRP A0114"
+    Warning! May add heavy atom  CH2 onto residue "TRP A0114"
+    Warning! May add heavy atom  CG  onto residue "LYS A0119"
+    Warning! May add heavy atom  CD  onto residue "LYS A0119"
+    Warning! May add heavy atom  CE  onto residue "LYS A0119"
+    Warning! May add heavy atom  NZ  onto residue "LYS A0119"
+    Warning! May add heavy atom  CG  onto residue "ARG A0120"
+    Warning! May add heavy atom  CD  onto residue "ARG A0120"
+    Warning! May add heavy atom  NE  onto residue "ARG A0120"
+    Warning! May add heavy atom  CZ  onto residue "ARG A0120"
+    Warning! May add heavy atom  NH1 onto residue "ARG A0120"
+    Warning! May add heavy atom  NH2 onto residue "ARG A0120"
+    Warning! May add heavy atom  CG  onto residue "LEU A0126"
+    Warning! May add heavy atom  CD1 onto residue "LEU A0126"
+    Warning! May add heavy atom  CD2 onto residue "LEU A0126"
+    Warning! May add heavy atom  CG  onto residue "LYS A0129"
+    Warning! May add heavy atom  CD  onto residue "LYS A0129"
+    Warning! May add heavy atom  CE  onto residue "LYS A0129"
+    Warning! May add heavy atom  NZ  onto residue "LYS A0129"
+    Warning! May add heavy atom  CG  onto residue "LYS A0145"
+    Warning! May add heavy atom  CD  onto residue "LYS A0145"
+    Warning! May add heavy atom  CE  onto residue "LYS A0145"
+    Warning! May add heavy atom  NZ  onto residue "LYS A0145"
+    Warning! May add heavy atom  OXT onto residue "CTR A0145"
+    Warning! May add heavy atom  CG  onto residue "HIS B0016"
+    Warning! May add heavy atom  ND1 onto residue "HIS B0016"
+    Warning! May add heavy atom  CE1 onto residue "HIS B0016"
+    Warning! May add heavy atom  NE2 onto residue "HIS B0016"
+    Warning! May add heavy atom  CD2 onto residue "HIS B0016"
+    Warning! May add heavy atom  CG  onto residue "LYS B0046"
+    Warning! May add heavy atom  CD  onto residue "LYS B0046"
+    Warning! May add heavy atom  CE  onto residue "LYS B0046"
+    Warning! May add heavy atom  NZ  onto residue "LYS B0046"
+    Warning! May add heavy atom  CG  onto residue "HIS B0050"
+    Warning! May add heavy atom  ND1 onto residue "HIS B0050"
+    Warning! May add heavy atom  CE1 onto residue "HIS B0050"
+    Warning! May add heavy atom  NE2 onto residue "HIS B0050"
+    Warning! May add heavy atom  CD2 onto residue "HIS B0050"
+    Warning! May add heavy atom  CG  onto residue "LYS B0052"
+    Warning! May add heavy atom  CD  onto residue "LYS B0052"
+    Warning! May add heavy atom  CE  onto residue "LYS B0052"
+    Warning! May add heavy atom  NZ  onto residue "LYS B0052"
+    Warning! May add heavy atom  CG  onto residue "LYS B0077"
+    Warning! May add heavy atom  CD  onto residue "LYS B0077"
+    Warning! May add heavy atom  CE  onto residue "LYS B0077"
+    Warning! May add heavy atom  NZ  onto residue "LYS B0077"
+    Warning! May add heavy atom  CG  onto residue "GLU B0078"
+    Warning! May add heavy atom  CD  onto residue "GLU B0078"
+    Warning! May add heavy atom  OE1 onto residue "GLU B0078"
+    Warning! May add heavy atom  OE2 onto residue "GLU B0078"
+    Warning! May add heavy atom  CG  onto residue "ARG B0081"
+    Warning! May add heavy atom  CD  onto residue "ARG B0081"
+    Warning! May add heavy atom  NE  onto residue "ARG B0081"
+    Warning! May add heavy atom  CZ  onto residue "ARG B0081"
+    Warning! May add heavy atom  NH1 onto residue "ARG B0081"
+    Warning! May add heavy atom  NH2 onto residue "ARG B0081"
+    Warning! May add heavy atom  CG  onto residue "LYS B0086"
+    Warning! May add heavy atom  CD  onto residue "LYS B0086"
+    Warning! May add heavy atom  CE  onto residue "LYS B0086"
+    Warning! May add heavy atom  NZ  onto residue "LYS B0086"
+    Warning! May add heavy atom  CG  onto residue "GLU B0091"
+    Warning! May add heavy atom  CD  onto residue "GLU B0091"
+    Warning! May add heavy atom  OE1 onto residue "GLU B0091"
+    Warning! May add heavy atom  OE2 onto residue "GLU B0091"
+    Warning! May add heavy atom  CG  onto residue "LYS B0110"
+    Warning! May add heavy atom  CD  onto residue "LYS B0110"
+    Warning! May add heavy atom  CE  onto residue "LYS B0110"
+    Warning! May add heavy atom  NZ  onto residue "LYS B0110"
+    Warning! May add heavy atom  CG  onto residue "TYR B0111"
+    Warning! May add heavy atom  CD1 onto residue "TYR B0111"
+    Warning! May add heavy atom  CD2 onto residue "TYR B0111"
+    Warning! May add heavy atom  CE1 onto residue "TYR B0111"
+    Warning! May add heavy atom  CE2 onto residue "TYR B0111"
+    Warning! May add heavy atom  CZ  onto residue "TYR B0111"
+    Warning! May add heavy atom  OH  onto residue "TYR B0111"
+    Warning! May add heavy atom  CG  onto residue "TRP B0114"
+    Warning! May add heavy atom  CD1 onto residue "TRP B0114"
+    Warning! May add heavy atom  CD2 onto residue "TRP B0114"
+    Warning! May add heavy atom  NE1 onto residue "TRP B0114"
+    Warning! May add heavy atom  CE2 onto residue "TRP B0114"
+    Warning! May add heavy atom  CE3 onto residue "TRP B0114"
+    Warning! May add heavy atom  CZ2 onto residue "TRP B0114"
+    Warning! May add heavy atom  CZ3 onto residue "TRP B0114"
+    Warning! May add heavy atom  CH2 onto residue "TRP B0114"
+    Warning! May add heavy atom  CG  onto residue "LYS B0119"
+    Warning! May add heavy atom  CD  onto residue "LYS B0119"
+    Warning! May add heavy atom  CE  onto residue "LYS B0119"
+    Warning! May add heavy atom  NZ  onto residue "LYS B0119"
+    Warning! May add heavy atom  CG  onto residue "ARG B0120"
+    Warning! May add heavy atom  CD  onto residue "ARG B0120"
+    Warning! May add heavy atom  NE  onto residue "ARG B0120"
+    Warning! May add heavy atom  CZ  onto residue "ARG B0120"
+    Warning! May add heavy atom  NH1 onto residue "ARG B0120"
+    Warning! May add heavy atom  NH2 onto residue "ARG B0120"
+    Warning! May add heavy atom  CG  onto residue "GLN B0123"
+    Warning! May add heavy atom  CD  onto residue "GLN B0123"
+    Warning! May add heavy atom  OE1 onto residue "GLN B0123"
+    Warning! May add heavy atom  NE2 onto residue "GLN B0123"
+    Warning! May add heavy atom  CG  onto residue "LEU B0126"
+    Warning! May add heavy atom  CD1 onto residue "LEU B0126"
+    Warning! May add heavy atom  CD2 onto residue "LEU B0126"
+    Warning! May add heavy atom  CG  onto residue "LYS B0145"
+    Warning! May add heavy atom  CD  onto residue "LYS B0145"
+    Warning! May add heavy atom  CE  onto residue "LYS B0145"
+    Warning! May add heavy atom  NZ  onto residue "LYS B0145"
+    Warning! May add heavy atom  OXT onto residue "CTR B0145"
+    Warning! May add heavy atom  CG  onto residue "HIS C0016"
+    Warning! May add heavy atom  ND1 onto residue "HIS C0016"
+    Warning! May add heavy atom  CE1 onto residue "HIS C0016"
+    Warning! May add heavy atom  NE2 onto residue "HIS C0016"
+    Warning! May add heavy atom  CD2 onto residue "HIS C0016"
+    Warning! May add heavy atom  CG  onto residue "HIS C0035"
+    Warning! May add heavy atom  ND1 onto residue "HIS C0035"
+    Warning! May add heavy atom  CE1 onto residue "HIS C0035"
+    Warning! May add heavy atom  NE2 onto residue "HIS C0035"
+    Warning! May add heavy atom  CD2 onto residue "HIS C0035"
+    Warning! May add heavy atom  CG  onto residue "ARG C0039"
+    Warning! May add heavy atom  CD  onto residue "ARG C0039"
+    Warning! May add heavy atom  NE  onto residue "ARG C0039"
+    Warning! May add heavy atom  CZ  onto residue "ARG C0039"
+    Warning! May add heavy atom  NH1 onto residue "ARG C0039"
+    Warning! May add heavy atom  NH2 onto residue "ARG C0039"
+    Warning! May add heavy atom  CG  onto residue "GLU C0045"
+    Warning! May add heavy atom  CD  onto residue "GLU C0045"
+    Warning! May add heavy atom  OE1 onto residue "GLU C0045"
+    Warning! May add heavy atom  OE2 onto residue "GLU C0045"
+    Warning! May add heavy atom  CG  onto residue "LYS C0046"
+    Warning! May add heavy atom  CD  onto residue "LYS C0046"
+    Warning! May add heavy atom  CE  onto residue "LYS C0046"
+    Warning! May add heavy atom  NZ  onto residue "LYS C0046"
+    Warning! May add heavy atom  OG  onto residue "SER C0069"
+    Warning! May add heavy atom  CG  onto residue "GLU C0078"
+    Warning! May add heavy atom  CD  onto residue "GLU C0078"
+    Warning! May add heavy atom  OE1 onto residue "GLU C0078"
+    Warning! May add heavy atom  OE2 onto residue "GLU C0078"
+    Warning! May add heavy atom  CG  onto residue "ARG C0081"
+    Warning! May add heavy atom  CD  onto residue "ARG C0081"
+    Warning! May add heavy atom  NE  onto residue "ARG C0081"
+    Warning! May add heavy atom  CZ  onto residue "ARG C0081"
+    Warning! May add heavy atom  NH1 onto residue "ARG C0081"
+    Warning! May add heavy atom  NH2 onto residue "ARG C0081"
+    Warning! May add heavy atom  CG  onto residue "LYS C0086"
+    Warning! May add heavy atom  CD  onto residue "LYS C0086"
+    Warning! May add heavy atom  CE  onto residue "LYS C0086"
+    Warning! May add heavy atom  NZ  onto residue "LYS C0086"
+    Warning! May add heavy atom  CG  onto residue "ASN C0101"
+    Warning! May add heavy atom  OD1 onto residue "ASN C0101"
+    Warning! May add heavy atom  ND2 onto residue "ASN C0101"
+    Warning! May add heavy atom  CG  onto residue "ARG C0120"
+    Warning! May add heavy atom  CD  onto residue "ARG C0120"
+    Warning! May add heavy atom  NE  onto residue "ARG C0120"
+    Warning! May add heavy atom  CZ  onto residue "ARG C0120"
+    Warning! May add heavy atom  NH1 onto residue "ARG C0120"
+    Warning! May add heavy atom  NH2 onto residue "ARG C0120"
+    Warning! May add heavy atom  CG  onto residue "LYS C0129"
+    Warning! May add heavy atom  CD  onto residue "LYS C0129"
+    Warning! May add heavy atom  CE  onto residue "LYS C0129"
+    Warning! May add heavy atom  NZ  onto residue "LYS C0129"
+    Warning! May add heavy atom  CG  onto residue "LYS C0145"
+    Warning! May add heavy atom  CD  onto residue "LYS C0145"
+    Warning! May add heavy atom  CE  onto residue "LYS C0145"
+    Warning! May add heavy atom  NZ  onto residue "LYS C0145"
+    Warning! May add heavy atom  OXT onto residue "CTR C0145"
+    Warning! May add heavy atom  CG  onto residue "HIS D0016"
+    Warning! May add heavy atom  ND1 onto residue "HIS D0016"
+    Warning! May add heavy atom  CE1 onto residue "HIS D0016"
+    Warning! May add heavy atom  NE2 onto residue "HIS D0016"
+    Warning! May add heavy atom  CD2 onto residue "HIS D0016"
+    Warning! May add heavy atom  CG  onto residue "HIS D0035"
+    Warning! May add heavy atom  ND1 onto residue "HIS D0035"
+    Warning! May add heavy atom  CE1 onto residue "HIS D0035"
+    Warning! May add heavy atom  NE2 onto residue "HIS D0035"
+    Warning! May add heavy atom  CD2 onto residue "HIS D0035"
+    Warning! May add heavy atom  CG  onto residue "GLU D0045"
+    Warning! May add heavy atom  CD  onto residue "GLU D0045"
+    Warning! May add heavy atom  OE1 onto residue "GLU D0045"
+    Warning! May add heavy atom  OE2 onto residue "GLU D0045"
+    Warning! May add heavy atom  CG  onto residue "LYS D0046"
+    Warning! May add heavy atom  CD  onto residue "LYS D0046"
+    Warning! May add heavy atom  CE  onto residue "LYS D0046"
+    Warning! May add heavy atom  NZ  onto residue "LYS D0046"
+    Warning! May add heavy atom  CG  onto residue "ASP D0048"
+    Warning! May add heavy atom  OD1 onto residue "ASP D0048"
+    Warning! May add heavy atom  OD2 onto residue "ASP D0048"
+    Warning! May add heavy atom  OG  onto residue "SER D0069"
+    Warning! May add heavy atom  CG  onto residue "GLU D0078"
+    Warning! May add heavy atom  CD  onto residue "GLU D0078"
+    Warning! May add heavy atom  OE1 onto residue "GLU D0078"
+    Warning! May add heavy atom  OE2 onto residue "GLU D0078"
+    Warning! May add heavy atom  CG  onto residue "ARG D0081"
+    Warning! May add heavy atom  CD  onto residue "ARG D0081"
+    Warning! May add heavy atom  NE  onto residue "ARG D0081"
+    Warning! May add heavy atom  CZ  onto residue "ARG D0081"
+    Warning! May add heavy atom  NH1 onto residue "ARG D0081"
+    Warning! May add heavy atom  NH2 onto residue "ARG D0081"
+    Warning! May add heavy atom  CG  onto residue "LYS D0086"
+    Warning! May add heavy atom  CD  onto residue "LYS D0086"
+    Warning! May add heavy atom  CE  onto residue "LYS D0086"
+    Warning! May add heavy atom  NZ  onto residue "LYS D0086"
+    Warning! May add heavy atom  OG  onto residue "SER D0087"
+    Warning! May add heavy atom  CG  onto residue "LYS D0119"
+    Warning! May add heavy atom  CD  onto residue "LYS D0119"
+    Warning! May add heavy atom  CE  onto residue "LYS D0119"
+    Warning! May add heavy atom  NZ  onto residue "LYS D0119"
+    Warning! May add heavy atom  CG  onto residue "ARG D0120"
+    Warning! May add heavy atom  CD  onto residue "ARG D0120"
+    Warning! May add heavy atom  NE  onto residue "ARG D0120"
+    Warning! May add heavy atom  CZ  onto residue "ARG D0120"
+    Warning! May add heavy atom  NH1 onto residue "ARG D0120"
+    Warning! May add heavy atom  NH2 onto residue "ARG D0120"
+    Warning! May add heavy atom  CG  onto residue "LYS D0129"
+    Warning! May add heavy atom  CD  onto residue "LYS D0129"
+    Warning! May add heavy atom  CE  onto residue "LYS D0129"
+    Warning! May add heavy atom  NZ  onto residue "LYS D0129"
+    Warning! May add heavy atom  CG  onto residue "LYS D0145"
+    Warning! May add heavy atom  CD  onto residue "LYS D0145"
+    Warning! May add heavy atom  CE  onto residue "LYS D0145"
+    Warning! May add heavy atom  NZ  onto residue "LYS D0145"
+    Warning! May add heavy atom  OXT onto residue "CTR D0145"
+    Warning! May add heavy atom  CG  onto residue "ASN E0150"
+    Warning! May add heavy atom  OD1 onto residue "ASN E0150"
+    Warning! May add heavy atom  ND2 onto residue "ASN E0150"
+    Warning! May add heavy atom  CG  onto residue "LYS E0151"
+    Warning! May add heavy atom  CD  onto residue "LYS E0151"
+    Warning! May add heavy atom  CE  onto residue "LYS E0151"
+    Warning! May add heavy atom  NZ  onto residue "LYS E0151"
+    Warning! May add heavy atom  CG  onto residue "GLU E0160"
+    Warning! May add heavy atom  CD  onto residue "GLU E0160"
+    Warning! May add heavy atom  OE1 onto residue "GLU E0160"
+    Warning! May add heavy atom  OE2 onto residue "GLU E0160"
+    Warning! May add heavy atom  CG  onto residue "LYS E0161"
+    Warning! May add heavy atom  CD  onto residue "LYS E0161"
+    Warning! May add heavy atom  CE  onto residue "LYS E0161"
+    Warning! May add heavy atom  NZ  onto residue "LYS E0161"
+    Warning! May add heavy atom  CG  onto residue "GLU E0163"
+    Warning! May add heavy atom  CD  onto residue "GLU E0163"
+    Warning! May add heavy atom  OE1 onto residue "GLU E0163"
+    Warning! May add heavy atom  OE2 onto residue "GLU E0163"
+    Warning! May add heavy atom  CG  onto residue "ASN E0184"
+    Warning! May add heavy atom  OD1 onto residue "ASN E0184"
+    Warning! May add heavy atom  ND2 onto residue "ASN E0184"
+    Warning! May add heavy atom  CG  onto residue "ARG E0210"
+    Warning! May add heavy atom  CD  onto residue "ARG E0210"
+    Warning! May add heavy atom  NE  onto residue "ARG E0210"
+    Warning! May add heavy atom  CZ  onto residue "ARG E0210"
+    Warning! May add heavy atom  NH1 onto residue "ARG E0210"
+    Warning! May add heavy atom  NH2 onto residue "ARG E0210"
+    Warning! May add heavy atom  CG  onto residue "ASN E0211"
+    Warning! May add heavy atom  OD1 onto residue "ASN E0211"
+    Warning! May add heavy atom  ND2 onto residue "ASN E0211"
+    Warning! May add heavy atom  CG  onto residue "GLN E0212"
+    Warning! May add heavy atom  CD  onto residue "GLN E0212"
+    Warning! May add heavy atom  OE1 onto residue "GLN E0212"
+    Warning! May add heavy atom  NE2 onto residue "GLN E0212"
+    Warning! May add heavy atom  CG  onto residue "HIS E0213"
+    Warning! May add heavy atom  ND1 onto residue "HIS E0213"
+    Warning! May add heavy atom  CE1 onto residue "HIS E0213"
+    Warning! May add heavy atom  NE2 onto residue "HIS E0213"
+    Warning! May add heavy atom  CD2 onto residue "HIS E0213"
+    Warning! May add heavy atom  CG  onto residue "GLU E0234"
+    Warning! May add heavy atom  CD  onto residue "GLU E0234"
+    Warning! May add heavy atom  OE1 onto residue "GLU E0234"
+    Warning! May add heavy atom  OE2 onto residue "GLU E0234"
+    Warning! May add heavy atom  OG  onto residue "SER E0267"
+    Warning! May add heavy atom  OXT onto residue "CTR E0267"
+    Warning! May add heavy atom  CG  onto residue "TYR E0281"
+    Warning! May add heavy atom  CD1 onto residue "TYR E0281"
+    Warning! May add heavy atom  CD2 onto residue "TYR E0281"
+    Warning! May add heavy atom  CE1 onto residue "TYR E0281"
+    Warning! May add heavy atom  CE2 onto residue "TYR E0281"
+    Warning! May add heavy atom  CZ  onto residue "TYR E0281"
+    Warning! May add heavy atom  OH  onto residue "TYR E0281"
+    Warning! May add heavy atom  CG  onto residue "LYS E0292"
+    Warning! May add heavy atom  CD  onto residue "LYS E0292"
+    Warning! May add heavy atom  CE  onto residue "LYS E0292"
+    Warning! May add heavy atom  NZ  onto residue "LYS E0292"
+    Warning! May add heavy atom  CG  onto residue "HIS E0293"
+    Warning! May add heavy atom  ND1 onto residue "HIS E0293"
+    Warning! May add heavy atom  CE1 onto residue "HIS E0293"
+    Warning! May add heavy atom  NE2 onto residue "HIS E0293"
+    Warning! May add heavy atom  CD2 onto residue "HIS E0293"
+    Warning! May add heavy atom  CG1 onto residue "VAL E0294"
+    Warning! May add heavy atom  CG2 onto residue "VAL E0294"
+    Warning! May add heavy atom  OXT onto residue "CTR E0294"
+    Warning! May add heavy atom  CG  onto residue "TYR E0308"
+    Warning! May add heavy atom  CD1 onto residue "TYR E0308"
+    Warning! May add heavy atom  CD2 onto residue "TYR E0308"
+    Warning! May add heavy atom  CE1 onto residue "TYR E0308"
+    Warning! May add heavy atom  CE2 onto residue "TYR E0308"
+    Warning! May add heavy atom  CZ  onto residue "TYR E0308"
+    Warning! May add heavy atom  OH  onto residue "TYR E0308"
+    Warning! May add heavy atom  CG  onto residue "LYS E0310"
+    Warning! May add heavy atom  CD  onto residue "LYS E0310"
+    Warning! May add heavy atom  CE  onto residue "LYS E0310"
+    Warning! May add heavy atom  NZ  onto residue "LYS E0310"
+    Warning! May add heavy atom  CG  onto residue "LYS E0322"
+    Warning! May add heavy atom  CD  onto residue "LYS E0322"
+    Warning! May add heavy atom  CE  onto residue "LYS E0322"
+    Warning! May add heavy atom  NZ  onto residue "LYS E0322"
+    Warning! May add heavy atom  CG  onto residue "GLU E0323"
+    Warning! May add heavy atom  CD  onto residue "GLU E0323"
+    Warning! May add heavy atom  OE1 onto residue "GLU E0323"
+    Warning! May add heavy atom  OE2 onto residue "GLU E0323"
+    Warning! May add heavy atom  CG  onto residue "ARG E0330"
+    Warning! May add heavy atom  CD  onto residue "ARG E0330"
+    Warning! May add heavy atom  NE  onto residue "ARG E0330"
+    Warning! May add heavy atom  CZ  onto residue "ARG E0330"
+    Warning! May add heavy atom  NH1 onto residue "ARG E0330"
+    Warning! May add heavy atom  NH2 onto residue "ARG E0330"
+    Warning! May add heavy atom  CG  onto residue "ASN E0331"
+    Warning! May add heavy atom  OD1 onto residue "ASN E0331"
+    Warning! May add heavy atom  ND2 onto residue "ASN E0331"
+    Warning! May add heavy atom  CG1 onto residue "VAL E0332"
+    Warning! May add heavy atom  CG2 onto residue "VAL E0332"
+    Warning! May add heavy atom  OG1 onto residue "THR E0333"
+    Warning! May add heavy atom  CG2 onto residue "THR E0333"
+    Warning! May add heavy atom  CG  onto residue "PHE E0334"
+    Warning! May add heavy atom  CD1 onto residue "PHE E0334"
+    Warning! May add heavy atom  CD2 onto residue "PHE E0334"
+    Warning! May add heavy atom  CE1 onto residue "PHE E0334"
+    Warning! May add heavy atom  CE2 onto residue "PHE E0334"
+    Warning! May add heavy atom  CZ  onto residue "PHE E0334"
+    Warning! May add heavy atom  CG  onto residue "GLU E0335"
+    Warning! May add heavy atom  CD  onto residue "GLU E0335"
+    Warning! May add heavy atom  OE1 onto residue "GLU E0335"
+    Warning! May add heavy atom  OE2 onto residue "GLU E0335"
+    Warning! May add heavy atom  CG1 onto residue "VAL E0359"
+    Warning! May add heavy atom  CG2 onto residue "VAL E0359"
+    Warning! May add heavy atom  CG  onto residue "LEU E0360"
+    Warning! May add heavy atom  CD1 onto residue "LEU E0360"
+    Warning! May add heavy atom  CD2 onto residue "LEU E0360"
+    Warning! May add heavy atom  OXT onto residue "CTR E0360"
+    Warning! May add heavy atom  CG  onto residue "ASN F0150"
+    Warning! May add heavy atom  OD1 onto residue "ASN F0150"
+    Warning! May add heavy atom  ND2 onto residue "ASN F0150"
+    Warning! May add heavy atom  CG  onto residue "LYS F0151"
+    Warning! May add heavy atom  CD  onto residue "LYS F0151"
+    Warning! May add heavy atom  CE  onto residue "LYS F0151"
+    Warning! May add heavy atom  NZ  onto residue "LYS F0151"
+    Warning! May add heavy atom  CG  onto residue "GLU F0160"
+    Warning! May add heavy atom  CD  onto residue "GLU F0160"
+    Warning! May add heavy atom  OE1 onto residue "GLU F0160"
+    Warning! May add heavy atom  OE2 onto residue "GLU F0160"
+    Warning! May add heavy atom  CG  onto residue "LYS F0161"
+    Warning! May add heavy atom  CD  onto residue "LYS F0161"
+    Warning! May add heavy atom  CE  onto residue "LYS F0161"
+    Warning! May add heavy atom  NZ  onto residue "LYS F0161"
+    Warning! May add heavy atom  CG  onto residue "GLU F0163"
+    Warning! May add heavy atom  CD  onto residue "GLU F0163"
+    Warning! May add heavy atom  OE1 onto residue "GLU F0163"
+    Warning! May add heavy atom  OE2 onto residue "GLU F0163"
+    Warning! May add heavy atom  CG  onto residue "ASN F0184"
+    Warning! May add heavy atom  OD1 onto residue "ASN F0184"
+    Warning! May add heavy atom  ND2 onto residue "ASN F0184"
+    Warning! May add heavy atom  CG  onto residue "ARG F0210"
+    Warning! May add heavy atom  CD  onto residue "ARG F0210"
+    Warning! May add heavy atom  NE  onto residue "ARG F0210"
+    Warning! May add heavy atom  CZ  onto residue "ARG F0210"
+    Warning! May add heavy atom  NH1 onto residue "ARG F0210"
+    Warning! May add heavy atom  NH2 onto residue "ARG F0210"
+    Warning! May add heavy atom  CG  onto residue "GLN F0212"
+    Warning! May add heavy atom  CD  onto residue "GLN F0212"
+    Warning! May add heavy atom  OE1 onto residue "GLN F0212"
+    Warning! May add heavy atom  NE2 onto residue "GLN F0212"
+    Warning! May add heavy atom  CG  onto residue "HIS F0213"
+    Warning! May add heavy atom  ND1 onto residue "HIS F0213"
+    Warning! May add heavy atom  CE1 onto residue "HIS F0213"
+    Warning! May add heavy atom  NE2 onto residue "HIS F0213"
+    Warning! May add heavy atom  CD2 onto residue "HIS F0213"
+    Warning! May add heavy atom  CG  onto residue "GLU F0234"
+    Warning! May add heavy atom  CD  onto residue "GLU F0234"
+    Warning! May add heavy atom  OE1 onto residue "GLU F0234"
+    Warning! May add heavy atom  OE2 onto residue "GLU F0234"
+    Warning! May add heavy atom  CG  onto residue "GLU F0236"
+    Warning! May add heavy atom  CD  onto residue "GLU F0236"
+    Warning! May add heavy atom  OE1 onto residue "GLU F0236"
+    Warning! May add heavy atom  OE2 onto residue "GLU F0236"
+    Warning! May add heavy atom  OG  onto residue "SER F0267"
+    Warning! May add heavy atom  CG1 onto residue "VAL F0269"
+    Warning! May add heavy atom  CG2 onto residue "VAL F0269"
+    Warning! May add heavy atom  CG1 onto residue "VAL F0270"
+    Warning! May add heavy atom  CG2 onto residue "VAL F0270"
+    Warning! May add heavy atom  OXT onto residue "CTR F0271"
+    Warning! May add heavy atom  CG  onto residue "HIS F0293"
+    Warning! May add heavy atom  ND1 onto residue "HIS F0293"
+    Warning! May add heavy atom  CE1 onto residue "HIS F0293"
+    Warning! May add heavy atom  NE2 onto residue "HIS F0293"
+    Warning! May add heavy atom  CD2 onto residue "HIS F0293"
+    Warning! May add heavy atom  OXT onto residue "CTR F0293"
+    Warning! May add heavy atom  CG  onto residue "TYR F0308"
+    Warning! May add heavy atom  CD1 onto residue "TYR F0308"
+    Warning! May add heavy atom  CD2 onto residue "TYR F0308"
+    Warning! May add heavy atom  CE1 onto residue "TYR F0308"
+    Warning! May add heavy atom  CE2 onto residue "TYR F0308"
+    Warning! May add heavy atom  CZ  onto residue "TYR F0308"
+    Warning! May add heavy atom  OH  onto residue "TYR F0308"
+    Warning! May add heavy atom  CG  onto residue "LYS F0310"
+    Warning! May add heavy atom  CD  onto residue "LYS F0310"
+    Warning! May add heavy atom  CE  onto residue "LYS F0310"
+    Warning! May add heavy atom  NZ  onto residue "LYS F0310"
+    Warning! May add heavy atom  CG  onto residue "LYS F0322"
+    Warning! May add heavy atom  CD  onto residue "LYS F0322"
+    Warning! May add heavy atom  CE  onto residue "LYS F0322"
+    Warning! May add heavy atom  NZ  onto residue "LYS F0322"
+    Warning! May add heavy atom  CG  onto residue "GLU F0323"
+    Warning! May add heavy atom  CD  onto residue "GLU F0323"
+    Warning! May add heavy atom  OE1 onto residue "GLU F0323"
+    Warning! May add heavy atom  OE2 onto residue "GLU F0323"
+    Warning! May add heavy atom  CG  onto residue "TYR F0328"
+    Warning! May add heavy atom  CD1 onto residue "TYR F0328"
+    Warning! May add heavy atom  CD2 onto residue "TYR F0328"
+    Warning! May add heavy atom  CE1 onto residue "TYR F0328"
+    Warning! May add heavy atom  CE2 onto residue "TYR F0328"
+    Warning! May add heavy atom  CZ  onto residue "TYR F0328"
+    Warning! May add heavy atom  OH  onto residue "TYR F0328"
+    Warning! May add heavy atom  CG1 onto residue "ILE F0329"
+    Warning! May add heavy atom  CG2 onto residue "ILE F0329"
+    Warning! May add heavy atom  CD1 onto residue "ILE F0329"
+    Warning! May add heavy atom  CG  onto residue "ARG F0330"
+    Warning! May add heavy atom  CD  onto residue "ARG F0330"
+    Warning! May add heavy atom  NE  onto residue "ARG F0330"
+    Warning! May add heavy atom  CZ  onto residue "ARG F0330"
+    Warning! May add heavy atom  NH1 onto residue "ARG F0330"
+    Warning! May add heavy atom  NH2 onto residue "ARG F0330"
+    Warning! May add heavy atom  CG  onto residue "ASN F0331"
+    Warning! May add heavy atom  OD1 onto residue "ASN F0331"
+    Warning! May add heavy atom  ND2 onto residue "ASN F0331"
+    Warning! May add heavy atom  CG1 onto residue "VAL F0332"
+    Warning! May add heavy atom  CG2 onto residue "VAL F0332"
+    Warning! May add heavy atom  OG1 onto residue "THR F0333"
+    Warning! May add heavy atom  CG2 onto residue "THR F0333"
+    Warning! May add heavy atom  CG  onto residue "PHE F0334"
+    Warning! May add heavy atom  CD1 onto residue "PHE F0334"
+    Warning! May add heavy atom  CD2 onto residue "PHE F0334"
+    Warning! May add heavy atom  CE1 onto residue "PHE F0334"
+    Warning! May add heavy atom  CE2 onto residue "PHE F0334"
+    Warning! May add heavy atom  CZ  onto residue "PHE F0334"
+    Warning! May add heavy atom  CG  onto residue "GLU F0335"
+    Warning! May add heavy atom  CD  onto residue "GLU F0335"
+    Warning! May add heavy atom  OE1 onto residue "GLU F0335"
+    Warning! May add heavy atom  OE2 onto residue "GLU F0335"
+    Warning! May add heavy atom  CG  onto residue "TRP F0356"
+    Warning! May add heavy atom  CD1 onto residue "TRP F0356"
+    Warning! May add heavy atom  CD2 onto residue "TRP F0356"
+    Warning! May add heavy atom  NE1 onto residue "TRP F0356"
+    Warning! May add heavy atom  CE2 onto residue "TRP F0356"
+    Warning! May add heavy atom  CE3 onto residue "TRP F0356"
+    Warning! May add heavy atom  CZ2 onto residue "TRP F0356"
+    Warning! May add heavy atom  CZ3 onto residue "TRP F0356"
+    Warning! May add heavy atom  CH2 onto residue "TRP F0356"
+    Warning! May add heavy atom  OG1 onto residue "THR F0358"
+    Warning! May add heavy atom  CG2 onto residue "THR F0358"
+    Warning! May add heavy atom  CG1 onto residue "VAL F0359"
+    Warning! May add heavy atom  CG2 onto residue "VAL F0359"
+    Warning! May add heavy atom  OXT onto residue "CTR F0359"
+    Warning! May add heavy atom  CG  onto residue "LYS G0151"
+    Warning! May add heavy atom  CD  onto residue "LYS G0151"
+    Warning! May add heavy atom  CE  onto residue "LYS G0151"
+    Warning! May add heavy atom  NZ  onto residue "LYS G0151"
+    Warning! May add heavy atom  CG  onto residue "GLU G0160"
+    Warning! May add heavy atom  CD  onto residue "GLU G0160"
+    Warning! May add heavy atom  OE1 onto residue "GLU G0160"
+    Warning! May add heavy atom  OE2 onto residue "GLU G0160"
+    Warning! May add heavy atom  CG  onto residue "ARG G0165"
+    Warning! May add heavy atom  CD  onto residue "ARG G0165"
+    Warning! May add heavy atom  NE  onto residue "ARG G0165"
+    Warning! May add heavy atom  CZ  onto residue "ARG G0165"
+    Warning! May add heavy atom  NH1 onto residue "ARG G0165"
+    Warning! May add heavy atom  NH2 onto residue "ARG G0165"
+    Warning! May add heavy atom  CG  onto residue "LYS G0176"
+    Warning! May add heavy atom  CD  onto residue "LYS G0176"
+    Warning! May add heavy atom  CE  onto residue "LYS G0176"
+    Warning! May add heavy atom  NZ  onto residue "LYS G0176"
+    Warning! May add heavy atom  CG  onto residue "LYS G0196"
+    Warning! May add heavy atom  CD  onto residue "LYS G0196"
+    Warning! May add heavy atom  CE  onto residue "LYS G0196"
+    Warning! May add heavy atom  NZ  onto residue "LYS G0196"
+    Warning! May add heavy atom  CG  onto residue "ARG G0203"
+    Warning! May add heavy atom  CD  onto residue "ARG G0203"
+    Warning! May add heavy atom  NE  onto residue "ARG G0203"
+    Warning! May add heavy atom  CZ  onto residue "ARG G0203"
+    Warning! May add heavy atom  NH1 onto residue "ARG G0203"
+    Warning! May add heavy atom  NH2 onto residue "ARG G0203"
+    Warning! May add heavy atom  CG  onto residue "ARG G0210"
+    Warning! May add heavy atom  CD  onto residue "ARG G0210"
+    Warning! May add heavy atom  NE  onto residue "ARG G0210"
+    Warning! May add heavy atom  CZ  onto residue "ARG G0210"
+    Warning! May add heavy atom  NH1 onto residue "ARG G0210"
+    Warning! May add heavy atom  NH2 onto residue "ARG G0210"
+    Warning! May add heavy atom  CG  onto residue "GLN G0212"
+    Warning! May add heavy atom  CD  onto residue "GLN G0212"
+    Warning! May add heavy atom  OE1 onto residue "GLN G0212"
+    Warning! May add heavy atom  NE2 onto residue "GLN G0212"
+    Warning! May add heavy atom  CG  onto residue "HIS G0213"
+    Warning! May add heavy atom  ND1 onto residue "HIS G0213"
+    Warning! May add heavy atom  CE1 onto residue "HIS G0213"
+    Warning! May add heavy atom  NE2 onto residue "HIS G0213"
+    Warning! May add heavy atom  CD2 onto residue "HIS G0213"
+    Warning! May add heavy atom  CG  onto residue "LYS G0226"
+    Warning! May add heavy atom  CD  onto residue "LYS G0226"
+    Warning! May add heavy atom  CE  onto residue "LYS G0226"
+    Warning! May add heavy atom  NZ  onto residue "LYS G0226"
+    Warning! May add heavy atom  CG  onto residue "GLU G0236"
+    Warning! May add heavy atom  CD  onto residue "GLU G0236"
+    Warning! May add heavy atom  OE1 onto residue "GLU G0236"
+    Warning! May add heavy atom  OE2 onto residue "GLU G0236"
+    Warning! May add heavy atom  CG  onto residue "ASP G0273"
+    Warning! May add heavy atom  OD1 onto residue "ASP G0273"
+    Warning! May add heavy atom  OD2 onto residue "ASP G0273"
+    Warning! May add heavy atom  OXT onto residue "CTR G0294"
+    Warning! May add heavy atom  CG  onto residue "TYR G0308"
+    Warning! May add heavy atom  CD1 onto residue "TYR G0308"
+    Warning! May add heavy atom  CD2 onto residue "TYR G0308"
+    Warning! May add heavy atom  CE1 onto residue "TYR G0308"
+    Warning! May add heavy atom  CE2 onto residue "TYR G0308"
+    Warning! May add heavy atom  CZ  onto residue "TYR G0308"
+    Warning! May add heavy atom  OH  onto residue "TYR G0308"
+    Warning! May add heavy atom  CG  onto residue "LYS G0310"
+    Warning! May add heavy atom  CD  onto residue "LYS G0310"
+    Warning! May add heavy atom  CE  onto residue "LYS G0310"
+    Warning! May add heavy atom  NZ  onto residue "LYS G0310"
+    Warning! May add heavy atom  CG  onto residue "LYS G0322"
+    Warning! May add heavy atom  CD  onto residue "LYS G0322"
+    Warning! May add heavy atom  CE  onto residue "LYS G0322"
+    Warning! May add heavy atom  NZ  onto residue "LYS G0322"
+    Warning! May add heavy atom  CG  onto residue "GLU G0323"
+    Warning! May add heavy atom  CD  onto residue "GLU G0323"
+    Warning! May add heavy atom  OE1 onto residue "GLU G0323"
+    Warning! May add heavy atom  OE2 onto residue "GLU G0323"
+    Warning! May add heavy atom  CG  onto residue "GLU G0335"
+    Warning! May add heavy atom  CD  onto residue "GLU G0335"
+    Warning! May add heavy atom  OE1 onto residue "GLU G0335"
+    Warning! May add heavy atom  OE2 onto residue "GLU G0335"
+    Warning! May add heavy atom  OXT onto residue "CTR G0363"
+    Warning! May add heavy atom  CG  onto residue "LYS H0151"
+    Warning! May add heavy atom  CD  onto residue "LYS H0151"
+    Warning! May add heavy atom  CE  onto residue "LYS H0151"
+    Warning! May add heavy atom  NZ  onto residue "LYS H0151"
+    Warning! May add heavy atom  CG  onto residue "GLU H0160"
+    Warning! May add heavy atom  CD  onto residue "GLU H0160"
+    Warning! May add heavy atom  OE1 onto residue "GLU H0160"
+    Warning! May add heavy atom  OE2 onto residue "GLU H0160"
+    Warning! May add heavy atom  CG  onto residue "LYS H0161"
+    Warning! May add heavy atom  CD  onto residue "LYS H0161"
+    Warning! May add heavy atom  CE  onto residue "LYS H0161"
+    Warning! May add heavy atom  NZ  onto residue "LYS H0161"
+    Warning! May add heavy atom  CG  onto residue "ARG H0165"
+    Warning! May add heavy atom  CD  onto residue "ARG H0165"
+    Warning! May add heavy atom  NE  onto residue "ARG H0165"
+    Warning! May add heavy atom  CZ  onto residue "ARG H0165"
+    Warning! May add heavy atom  NH1 onto residue "ARG H0165"
+    Warning! May add heavy atom  NH2 onto residue "ARG H0165"
+    Warning! May add heavy atom  CG  onto residue "LYS H0176"
+    Warning! May add heavy atom  CD  onto residue "LYS H0176"
+    Warning! May add heavy atom  CE  onto residue "LYS H0176"
+    Warning! May add heavy atom  NZ  onto residue "LYS H0176"
+    Warning! May add heavy atom  CG  onto residue "LYS H0196"
+    Warning! May add heavy atom  CD  onto residue "LYS H0196"
+    Warning! May add heavy atom  CE  onto residue "LYS H0196"
+    Warning! May add heavy atom  NZ  onto residue "LYS H0196"
+    Warning! May add heavy atom  CG  onto residue "GLU H0197"
+    Warning! May add heavy atom  CD  onto residue "GLU H0197"
+    Warning! May add heavy atom  OE1 onto residue "GLU H0197"
+    Warning! May add heavy atom  OE2 onto residue "GLU H0197"
+    Warning! May add heavy atom  CG  onto residue "LYS H0199"
+    Warning! May add heavy atom  CD  onto residue "LYS H0199"
+    Warning! May add heavy atom  CE  onto residue "LYS H0199"
+    Warning! May add heavy atom  NZ  onto residue "LYS H0199"
+    Warning! May add heavy atom  CG  onto residue "ARG H0210"
+    Warning! May add heavy atom  CD  onto residue "ARG H0210"
+    Warning! May add heavy atom  NE  onto residue "ARG H0210"
+    Warning! May add heavy atom  CZ  onto residue "ARG H0210"
+    Warning! May add heavy atom  NH1 onto residue "ARG H0210"
+    Warning! May add heavy atom  NH2 onto residue "ARG H0210"
+    Warning! May add heavy atom  CG  onto residue "ASN H0211"
+    Warning! May add heavy atom  OD1 onto residue "ASN H0211"
+    Warning! May add heavy atom  ND2 onto residue "ASN H0211"
+    Warning! May add heavy atom  CG  onto residue "GLN H0212"
+    Warning! May add heavy atom  CD  onto residue "GLN H0212"
+    Warning! May add heavy atom  OE1 onto residue "GLN H0212"
+    Warning! May add heavy atom  NE2 onto residue "GLN H0212"
+    Warning! May add heavy atom  CG  onto residue "GLU H0236"
+    Warning! May add heavy atom  CD  onto residue "GLU H0236"
+    Warning! May add heavy atom  OE1 onto residue "GLU H0236"
+    Warning! May add heavy atom  OE2 onto residue "GLU H0236"
+    Warning! May add heavy atom  CG  onto residue "HIS H0245"
+    Warning! May add heavy atom  ND1 onto residue "HIS H0245"
+    Warning! May add heavy atom  CE1 onto residue "HIS H0245"
+    Warning! May add heavy atom  NE2 onto residue "HIS H0245"
+    Warning! May add heavy atom  CD2 onto residue "HIS H0245"
+    Warning! May add heavy atom  CG1 onto residue "VAL H0269"
+    Warning! May add heavy atom  CG2 onto residue "VAL H0269"
+    Warning! May add heavy atom  CG  onto residue "HIS H0293"
+    Warning! May add heavy atom  ND1 onto residue "HIS H0293"
+    Warning! May add heavy atom  CE1 onto residue "HIS H0293"
+    Warning! May add heavy atom  NE2 onto residue "HIS H0293"
+    Warning! May add heavy atom  CD2 onto residue "HIS H0293"
+    Warning! May add heavy atom  OXT onto residue "CTR H0294"
+    Warning! May add heavy atom  CG  onto residue "TYR H0308"
+    Warning! May add heavy atom  CD1 onto residue "TYR H0308"
+    Warning! May add heavy atom  CD2 onto residue "TYR H0308"
+    Warning! May add heavy atom  CE1 onto residue "TYR H0308"
+    Warning! May add heavy atom  CE2 onto residue "TYR H0308"
+    Warning! May add heavy atom  CZ  onto residue "TYR H0308"
+    Warning! May add heavy atom  OH  onto residue "TYR H0308"
+    Warning! May add heavy atom  CG  onto residue "LYS H0310"
+    Warning! May add heavy atom  CD  onto residue "LYS H0310"
+    Warning! May add heavy atom  CE  onto residue "LYS H0310"
+    Warning! May add heavy atom  NZ  onto residue "LYS H0310"
+    Warning! May add heavy atom  CG  onto residue "ASN H0318"
+    Warning! May add heavy atom  OD1 onto residue "ASN H0318"
+    Warning! May add heavy atom  ND2 onto residue "ASN H0318"
+    Warning! May add heavy atom  CG  onto residue "LYS H0322"
+    Warning! May add heavy atom  CD  onto residue "LYS H0322"
+    Warning! May add heavy atom  CE  onto residue "LYS H0322"
+    Warning! May add heavy atom  NZ  onto residue "LYS H0322"
+    Warning! May add heavy atom  CG  onto residue "GLU H0323"
+    Warning! May add heavy atom  CD  onto residue "GLU H0323"
+    Warning! May add heavy atom  OE1 onto residue "GLU H0323"
+    Warning! May add heavy atom  OE2 onto residue "GLU H0323"
+    Warning! May add heavy atom  CG  onto residue "PHE H0334"
+    Warning! May add heavy atom  CD1 onto residue "PHE H0334"
+    Warning! May add heavy atom  CD2 onto residue "PHE H0334"
+    Warning! May add heavy atom  CE1 onto residue "PHE H0334"
+    Warning! May add heavy atom  CE2 onto residue "PHE H0334"
+    Warning! May add heavy atom  CZ  onto residue "PHE H0334"
+    Warning! May add heavy atom  CG  onto residue "GLU H0335"
+    Warning! May add heavy atom  CD  onto residue "GLU H0335"
+    Warning! May add heavy atom  OE1 onto residue "GLU H0335"
+    Warning! May add heavy atom  OE2 onto residue "GLU H0335"
+    Warning! May add heavy atom  CG1 onto residue "VAL H0359"
+    Warning! May add heavy atom  CG2 onto residue "VAL H0359"
+    Warning! May add heavy atom  OXT onto residue "CTR H0363"
+   102 TORSION parameters were guessed and recorded in file debug.log.
+   Modify and put them into a param file to have the full control.
+   2 TORSION parameters were guessed and recorded in file debug.log.
+   Modify and put them into a param file to have the full control.
+   Total time for step1 (premcce) is 2 seconds.
+
+   Output files:
+      step1_out.pdb         will be the input of step 2.
+      head1.lst             rotamer making control file for step 2
+      acc.atm               atom solvent accessible surface
+      acc.res               residue solvent accessible surface
+      head1.lst             rotamer making instruction, used in step2
+
+Step 1 Done.
+
+Step 2. Make multi side chain conformers
+   Load step 1 output file step1_out.pdb...
+   Done
+
+   Rotamer statistics is dynamically updated in file "rot_stat"
+
+   Remove redundant heavy atom conformers in step1_out.pdb
+   0 conformers were deleted.
+   Done
+
+
+   Relax crystal water..
+   Done
+
+   Prepare for rotamer making ...
+   Deleting H atoms...10406 H atoms were deleted.
+   Assigning radii.
+   Estimating Solvent Accessible Surface (SAS).
+   Done.
+
+   Swap atoms...
+   Done
+
+
+
+   Delete duplicate conformers ... 0 conformers deleted.
+   Done
+
+   Prune rotamers by self VDW potential...
+   Creating connectivity table...
+   Computing self VDW potential. It may take a while...
+   Warning! assign_crg(): missing parameter(s), default value is used and saved in debug.log.
+   Pruning rotamers...1 rotamers deleted.
+   Done
+
+
+   Tuning exposed rotamers...
+   Done
+
+
+   Repack side chains 5000 times, remove inaccessible conformers...
+   Computing pairwise LJ potential. This may take a while.
+      Estimated time on AMD 1.6GHz is 59 seconds.
+      Actual time is 0
+   Repacking in progress, see progress.log for details...
+   Done
+
+
+   Skip writing heavy atome rotamer pdb file hvrot.pdb
+   Making ionization conformers...
+   Done
+
+
+   Add H atoms...
+   Done
+
+
+   Relaxation...
+   Start setting up for relaxation.
+   Warning! assign_crg(): missing parameter(s), default value is used and saved in debug.log.
+   Setup for relaxation done.
+   Start relaxation.
+   Done
+
+   Optimizing hydroxyl and water...
+   Total number of atoms 46997
+   Done
+
+
+   Sorting conformers...
+   Done
+
+   Skip writing full rotamer file step2_out.full.
+   Delete duplicate conformers ...
+      69 conformers deleted in this cycle
+   Done
+
+
+
+   Write output...
+   Done
+
+   Total time for step2 (rotamer making) is 2604 seconds.
+
+   Output files:
+      step2_out.pdb   : mcce pdb file, the input of step 3
+      head2.lst       : conformer summary
+      step2_out.full  : rotamers without pairwise pruning.
+      hvrot.pdb       : heavy atom rotamers, can be used recursively by step 2
+
+Step 2 Done.
+
+Step 3. Compute energy lookup table
+   Load step 2 output file step2_out.pdb...
+   Done
+
+   Reporting non integer conformer charge ...
+   Passed, no non-integer charges
+   Done
+
+   Creating connectivity table...
+   Done
+
+   Preparing DelPhi runs at epsilon 8.00 ...
+      5 focusing runs required for this protein.
+   Done
+
+   Computing pairwise from conformer 1 to 4540 of 4540 total conformers
+      see progress.log for progress...
+   Done
+
+   Computing RXN from conformer 1 to 4540 of 4540 total conformers
+      see progress.log for progress...
+   Done
+
+   Add dummy conformers ... 0 dummy conformers were added.
+   Done
+
+   Making pairwise energy matrices and conformer summary ... 
+   Done
+
+   Skiping writing step 3 rotamer file step3_out.pdb.
+   Total time for step3 (energy calculation) is 42755 seconds.
+
+   Output files (epsilon = 8.00):
+      energies.opp    : energy lookup table, use opp to decode the file
+      head3.lst       : conformer summary
+
+Step 3 Done.
+
+Step 4. Monte Carlo Sampling
+   Load conformer list from file "head3.lst" ...
+   Scaling factors:
+   VDW0  = 0.100:
+   VDW1  = 0.100:
+   VDW   = 0.100:
+   TORS  = 0.100:
+   ELE   = 1.000:
+   DSOLV = 1.000:
+   Done
+
+   Load pairwise interactions ...
+   Done
+
+   Verify self consistancy of conformer flag ...
+   PHE01A0017_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0020_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0023_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01A0027_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01A0030_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01A0031_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0032_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01A0034_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0036_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0040_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0043_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0049_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01A0051_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0053_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01A0054_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0055_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01A0056_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0057_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0062_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0063_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01A0065_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0068_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0070_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01A0071_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0074_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0075_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01A0076_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0082_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0083_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0084_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0088_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01A0093_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01A0094_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01A0095_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0098_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01A0101_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01A0104_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0116_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0117_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0118_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01A0123_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0132_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01A0134_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0136_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01A0137_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0138_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01A0139_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0140_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0141_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01A0142_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0144_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01B0017_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01B0020_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01B0023_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01B0027_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01B0030_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01B0031_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01B0032_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01B0034_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01B0036_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01B0040_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01B0043_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01B0049_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01B0051_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01B0053_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01B0054_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01B0055_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01B0056_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01B0057_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01B0062_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01B0063_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01B0065_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01B0068_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01B0070_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01B0071_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01B0074_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01B0075_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01B0076_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01B0082_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01B0083_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01B0084_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01B0088_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01B0093_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01B0094_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01B0095_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01B0098_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01B0101_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01B0104_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01B0116_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01B0117_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01B0118_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01B0123_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01B0132_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01B0136_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01B0137_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01B0138_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01B0139_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01B0140_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01B0141_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01B0142_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01B0144_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01C0017_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01C0020_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01C0023_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01C0030_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01C0031_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01C0032_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01C0034_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01C0036_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01C0040_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01C0043_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01C0049_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01C0051_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01C0053_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01C0054_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01C0055_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01C0056_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01C0057_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01C0062_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01C0063_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01C0065_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01C0068_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01C0070_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01C0071_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01C0074_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01C0075_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01C0076_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01C0082_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01C0083_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01C0084_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01C0088_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01C0093_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01C0094_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01C0095_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01C0098_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01C0101_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01C0102_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01C0104_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01C0114_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01C0116_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01C0117_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01C0118_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01C0123_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01C0126_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01C0132_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01C0134_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01C0136_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01C0137_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01C0138_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01C0139_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01C0140_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01C0141_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01C0144_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01D0017_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01D0020_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01D0023_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01D0027_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01D0030_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01D0031_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01D0032_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01D0034_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01D0036_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01D0040_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01D0043_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01D0049_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01D0051_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01D0053_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01D0054_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01D0055_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01D0056_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01D0057_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01D0062_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01D0063_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01D0065_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01D0068_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01D0070_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01D0071_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01D0074_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01D0075_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01D0076_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01D0082_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01D0083_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01D0084_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01D0088_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01D0093_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01D0094_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01D0095_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01D0098_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01D0101_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01D0102_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01D0104_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01D0114_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01D0116_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01D0117_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01D0118_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01D0123_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01D0126_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01D0132_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01D0134_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01D0136_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01D0137_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01D0138_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01D0139_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01D0140_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01D0141_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01D0144_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01E0150_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01E0153_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01E0154_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01E0156_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01E0158_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01E0162_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01E0166_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01E0168_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0169_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01E0170_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01E0171_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01E0172_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0175_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01E0177_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   CYD01E0179_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01E0180_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01E0181_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01E0184_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01E0185_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01E0186_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01E0187_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01E0189_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01E0191_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01E0192_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01E0194_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01E0198_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01E0200_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01E0204_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0209_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01E0211_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01E0212_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01E0214_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01E0216_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01E0217_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01E0218_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0221_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0222_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01E0223_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01E0228_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   CYD01E0231_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0232_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0233_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01E0235_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01E0240_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01E0241_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01E0246_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0248_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0249_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01E0253_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01E0256_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01E0257_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01E0258_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01E0259_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01E0260_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01E0262_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01E0263_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01E0264_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01E0265_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01E0266_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0274_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01E0276_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0277_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   CYD01E0278_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0280_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01E0284_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01E0285_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01E0286_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01E0288_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01E0289_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01E0290_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01E0291_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0294_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01E0307_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01E0309_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0311_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01E0312_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01E0314_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01E0315_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0317_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01E0318_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01E0324_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0326_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01E0327_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01E0329_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01E0331_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0332_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01E0337_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   CYD01E0342_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01E0343_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01E0344_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01E0346_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01E0348_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01E0350_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01E0352_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01E0355_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01E0356_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01E0357_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01E0359_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01E0360_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01F0150_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01F0153_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01F0154_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01F0156_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01F0158_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01F0162_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01F0166_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01F0168_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0169_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01F0170_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01F0171_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01F0172_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0175_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01F0177_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   CYD01F0179_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01F0180_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01F0181_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01F0184_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01F0185_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01F0186_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01F0187_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01F0189_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01F0191_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01F0192_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01F0194_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01F0198_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01F0200_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01F0204_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0209_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01F0211_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01F0212_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01F0214_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01F0216_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01F0217_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01F0218_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0221_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0222_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01F0223_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01F0228_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   CYD01F0231_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0232_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0233_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01F0235_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01F0240_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01F0241_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01F0246_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0248_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0249_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01F0253_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01F0256_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01F0257_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01F0258_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01F0259_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01F0260_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01F0262_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01F0263_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01F0264_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01F0265_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01F0266_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0269_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0270_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0274_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01F0276_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0277_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   CYD01F0278_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0280_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01F0284_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01F0285_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01F0286_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01F0288_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01F0289_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01F0290_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01F0291_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01F0309_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0311_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01F0312_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01F0314_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01F0315_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0317_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01F0318_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0326_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01F0327_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01F0329_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01F0331_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0332_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01F0337_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   CYD01F0342_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01F0343_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01F0344_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01F0346_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01F0348_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01F0350_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01F0352_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01F0355_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01F0357_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01F0359_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01G0153_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01G0154_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01G0156_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01G0158_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01G0162_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01G0166_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01G0168_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0169_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01G0170_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01G0171_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01G0172_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01G0173_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0175_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01G0177_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   CYD01G0179_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01G0180_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01G0181_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01G0184_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01G0185_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01G0186_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01G0187_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01G0189_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01G0191_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01G0192_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01G0194_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01G0198_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01G0200_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01G0204_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0209_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01G0211_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01G0212_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01G0214_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01G0216_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01G0217_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01G0218_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0221_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0222_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01G0223_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01G0228_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   CYD01G0231_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0232_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0233_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01G0235_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01G0240_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01G0241_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01G0246_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0248_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0249_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01G0253_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01G0256_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01G0257_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01G0258_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01G0259_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01G0260_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01G0262_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01G0263_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01G0264_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01G0265_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01G0266_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0269_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0270_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0274_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01G0276_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0277_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   CYD01G0278_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0280_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01G0284_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01G0286_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01G0288_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01G0289_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01G0290_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01G0291_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0294_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01G0309_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0311_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01G0312_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01G0314_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01G0315_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0317_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01G0318_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01G0324_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0326_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01G0327_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01G0329_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01G0331_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0332_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01G0334_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01G0337_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   CYD01G0342_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01G0343_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01G0344_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01G0346_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01G0348_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01G0350_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01G0352_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01G0355_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01G0356_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01G0357_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01G0359_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01G0360_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01G0361_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01G0362_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01G0363_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01H0153_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01H0154_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01H0156_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01H0158_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01H0162_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01H0166_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01H0168_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0169_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01H0170_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01H0171_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01H0172_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01H0173_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0175_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01H0177_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   CYD01H0179_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01H0180_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01H0181_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01H0184_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01H0185_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01H0186_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01H0187_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01H0191_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01H0192_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01H0194_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01H0198_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01H0200_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01H0204_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0209_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01H0211_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01H0212_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01H0214_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01H0216_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01H0217_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01H0218_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0221_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0222_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01H0223_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01H0228_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   CYD01H0231_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0232_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0233_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01H0235_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01H0240_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01H0241_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01H0246_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0248_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0249_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01H0253_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01H0256_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01H0257_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01H0258_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01H0259_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01H0260_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01H0262_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01H0263_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01H0264_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01H0265_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01H0266_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0269_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0270_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0274_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01H0276_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0277_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   CYD01H0278_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0280_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01H0284_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01H0286_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01H0288_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01H0289_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01H0290_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01H0291_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0294_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01H0307_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01H0309_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0311_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01H0312_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01H0314_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01H0315_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0317_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01H0324_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0326_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01H0327_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01H0329_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01H0331_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0332_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01H0337_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   CYD01H0342_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01H0343_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01H0344_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01H0346_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01H0348_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01H0350_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01H0352_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01H0355_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01H0356_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01H0357_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01H0359_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01H0360_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01H0361_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01H0362_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01H0363_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   Conformer flags updated due to self consistancy.
+
+   Do titration at 15 points...
+   Detailed progress is in file "mc_out"
+   Monte Carlo set up time: 1 seconds.
+   Titration  1:    61 seconds, biggest stdev of conformer occ = 0.032
+   Titration  2:    64 seconds, biggest stdev of conformer occ = 0.031
+   Titration  3:    69 seconds, biggest stdev of conformer occ = 0.042
+   Titration  4:    82 seconds, biggest stdev of conformer occ = 0.046
+   Titration  5:    59 seconds, biggest stdev of conformer occ = 0.046
+   Titration  6:    56 seconds, biggest stdev of conformer occ = 0.040
+   Titration  7:    63 seconds, biggest stdev of conformer occ = 0.031
+   Titration  8:    53 seconds, biggest stdev of conformer occ = 0.029
+   Titration  9:    60 seconds, biggest stdev of conformer occ = 0.040
+   Titration 10:    56 seconds, biggest stdev of conformer occ = 0.033
+   Titration 11:    67 seconds, biggest stdev of conformer occ = 0.031
+   Titration 12:    69 seconds, biggest stdev of conformer occ = 0.029
+   Titration 13:    74 seconds, biggest stdev of conformer occ = 0.031
+   Titration 14:    64 seconds, biggest stdev of conformer occ = 0.027
+   Titration 15:    61 seconds, biggest stdev of conformer occ = 0.037
+   Done
+
+   Fit titration curves to get pKa/Em ...
+   Done
+
+   Total time on MC: 959 seconds
+
+   Output files:
+      mc_out          : MC progress and convergence.
+      fort.38         : Occupancy table.
+      pK.out          : pKa or Em from titration curve fitting.
+      sum_crg.out     : Summary of residue charges.
+Step 4 Done.
+

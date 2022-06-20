@@ -1,0 +1,106 @@
+### This is a temporary parameter file made for residue AA2 ###
+### Make sure that all the parameters are verified before using this file as a global parameter file ###
+
+CONFLIST AA2        AA2BK 
+
+NATOM    AA2BK      32
+
+IATOM    AA2BK  N1     0
+IATOM    AA2BK  C2     1
+IATOM    AA2BK  N3     2
+IATOM    AA2BK  C4     3
+IATOM    AA2BK  C5     4
+IATOM    AA2BK  C6     5
+IATOM    AA2BK  C7     6
+IATOM    AA2BK  C8     7
+IATOM    AA2BK  C9     8
+IATOM    AA2BK  C10    9
+IATOM    AA2BK  C11   10
+IATOM    AA2BK  C12   11
+IATOM    AA2BK  C13   12
+IATOM    AA2BK  C14   13
+IATOM    AA2BK  C15   14
+IATOM    AA2BK  C16   15
+IATOM    AA2BK  C17   16
+IATOM    AA2BK  C18   17
+IATOM    AA2BK  N19   18
+IATOM    AA2BK CL20   19
+IATOM    AA2BK  C21   20
+IATOM    AA2BK  C22   21
+IATOM    AA2BK  C23   22
+IATOM    AA2BK  N24   23
+IATOM    AA2BK  C25   24
+IATOM    AA2BK  C26   25
+IATOM    AA2BK  N27   26
+IATOM    AA2BK  C28   27
+IATOM    AA2BK  C29   28
+IATOM    AA2BK  O30   29
+IATOM    AA2BK  C31   30
+IATOM    AA2BK  C32   31
+
+ATOMNAME AA2BK    0  N1 
+ATOMNAME AA2BK    1  C2 
+ATOMNAME AA2BK    2  N3 
+ATOMNAME AA2BK    3  C4 
+ATOMNAME AA2BK    4  C5 
+ATOMNAME AA2BK    5  C6 
+ATOMNAME AA2BK    6  C7 
+ATOMNAME AA2BK    7  C8 
+ATOMNAME AA2BK    8  C9 
+ATOMNAME AA2BK    9  C10
+ATOMNAME AA2BK   10  C11
+ATOMNAME AA2BK   11  C12
+ATOMNAME AA2BK   12  C13
+ATOMNAME AA2BK   13  C14
+ATOMNAME AA2BK   14  C15
+ATOMNAME AA2BK   15  C16
+ATOMNAME AA2BK   16  C17
+ATOMNAME AA2BK   17  C18
+ATOMNAME AA2BK   18  N19
+ATOMNAME AA2BK   19 CL20
+ATOMNAME AA2BK   20  C21
+ATOMNAME AA2BK   21  C22
+ATOMNAME AA2BK   22  C23
+ATOMNAME AA2BK   23  N24
+ATOMNAME AA2BK   24  C25
+ATOMNAME AA2BK   25  C26
+ATOMNAME AA2BK   26  N27
+ATOMNAME AA2BK   27  C28
+ATOMNAME AA2BK   28  C29
+ATOMNAME AA2BK   29  O30
+ATOMNAME AA2BK   30  C31
+ATOMNAME AA2BK   31  C32
+
+CONNECT  AA2BK  N1  ion        0    C2   0    C6 
+CONNECT  AA2BK  C2  ion        0    N1   0    N3   0    N19
+CONNECT  AA2BK  N3  ion        0    C2   0    C4 
+CONNECT  AA2BK  C4  ion        0    N3   0    C5   0    C7 
+CONNECT  AA2BK  C5  ion        0    C4   0    C6   0   CL20
+CONNECT  AA2BK  C6  ion        0    N1   0    C5 
+CONNECT  AA2BK  C7  ion        0    C4   0    C8   0    C12
+CONNECT  AA2BK  C8  ion        0    C7   0    C9 
+CONNECT  AA2BK  C9  ion        0    C8   0    C10
+CONNECT  AA2BK  C10 ion        0    C9   0    C11  0    C21
+CONNECT  AA2BK  C11 ion        0    C10  0    C12
+CONNECT  AA2BK  C12 ion        0    C7   0    C11
+CONNECT  AA2BK  C13 ion        0    C14  0    C18  0    N19
+CONNECT  AA2BK  C14 ion        0    C13  0    C15
+CONNECT  AA2BK  C15 ion        0    C14  0    C16
+CONNECT  AA2BK  C16 ion        0    C15  0    C17  0    C25
+CONNECT  AA2BK  C17 ion        0    C16  0    C18
+CONNECT  AA2BK  C18 ion        0    C13  0    C17
+CONNECT  AA2BK  N19 ion        0    C2   0    C13
+CONNECT  AA2BK CL20 ion        0    C5 
+CONNECT  AA2BK  C21 ion        0    C10  0    C22  0    C23  0    N24
+CONNECT  AA2BK  C22 ion        0    C21
+CONNECT  AA2BK  C23 ion        0    C21
+CONNECT  AA2BK  N24 ion        0    C21
+CONNECT  AA2BK  C25 ion        0    C16  0    C26
+CONNECT  AA2BK  C26 ion        0    C25  0    N27
+CONNECT  AA2BK  N27 ion        0    C26  0    C28  0    C32
+CONNECT  AA2BK  C28 ion        0    N27  0    C29
+CONNECT  AA2BK  C29 ion        0    C28  0    O30
+CONNECT  AA2BK  O30 ion        0    C29  0    C31
+CONNECT  AA2BK  C31 ion        0    O30  0    C32
+CONNECT  AA2BK  C32 ion        0    N27  0    C31
+

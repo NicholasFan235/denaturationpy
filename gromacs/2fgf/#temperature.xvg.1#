@@ -1,0 +1,35 @@
+# This file was created Thu Apr 21 20:04:00 2022
+# Created by:
+#                       :-) GROMACS - gmx energy, 2022 (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/sabsr3/IvyFarm/gromacs/2fgf
+# Command line:
+#   gmx energy -f nvt.edr -o temperature.xvg
+# gmx energy is part of G R O M A C S:
+#
+# Gravel Rubs Often Many Awfully Cauterized Sores
+#
+@    title "GROMACS Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(K)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Temperature"
+    0.000000  296.737762
+   10.000000  300.321106
+   20.000000  294.640717
+   30.000000  297.599030
+   40.000000  296.862915
+   50.000000  301.809021
+   60.000000  298.083801
+   70.000000  299.947052
+   80.000000  299.133575
+   90.000000  293.218048
+  100.000000  297.442474

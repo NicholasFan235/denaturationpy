@@ -1,0 +1,469 @@
+===========================================================
+<<< MCCE Multi-Conformation Continuum Electrostatics >>>   
+-----------------------------------------------------------
+Version:        2.7                                        
+Home Page:      http://pka.engr.ccny.cuny.edu/~mcce        
+Support:        jmao@ccny.cuny.edu                         
+Developed by:   Junjun Mao, Yifan Song, Marilyn Gunner     
+===========================================================
+Last Updates:                                              
+   03/23/2011  Two coding enhancement added to MCCE2.3     
+               In memory parameter loading                 
+               energy lookup table in text, non-0 only     
+===========================================================
+Step 0. Loading parameters
+   Load run control file "run.prm"...
+   Done
+
+   Tentatively load local param file "new.tpl"...   No such file, ignore.
+   Done
+
+   Load parameters from directory "/home/sabsr3/mcce/param08" ... 
+   Done
+
+   Load linear free energy correction parameters from "/home/sabsr3/mcce/extra.tpl".../home/sabsr3/mcce/extra.tpl
+   File loaded.
+   Done
+
+Step 0 Done.
+
+Step 1. Test and format structral file
+   Read pdb file "prot.pdb"...
+   Done
+
+   Read name rule file "/home/sabsr3/mcce/name.txt"...
+   Done
+
+   Rename residue and atom names...
+   Done
+
+   Identify NTR and CTR...
+      Labeling "GLU A 467" as NTR
+      Labeling "LYS A 507" as NTR
+      Labeling "GLU A 596" as NTR
+      Labeling "ILE A 503" as CTR
+      Labeling "ARG A 580" as CTR
+   Done
+
+   Label backbone, sidechain and altLoc conformers...
+   Error! premcce_confname(): Can't get conformer list of this residue AA2
+   Creating temporary parameter file for unrecognized residue...
+   Trying labeling again...
+   Done
+
+   Load pdb lines into data structure...
+   Done
+
+   Strip water molecules with SAS >   5%...
+   Warning! assign_rad(): missing parameter(s), default value is used and saved in debug.log.
+        2 water/salt molecules were stripped off in this round
+        0 water/salt molecules were stripped off in this round
+   Total deleted HOH = 2.
+   Done
+
+   Check missing heavy atoms and complete altLoc conformers...
+   Missing heavy atom  N   of conf GLUBK in "GLU A 467".
+   Missing heavy atom  CA  of conf GLUBK in "GLU A 467".
+   Missing heavy atom  CG  of conf PHE01 in "PHE A 492".
+   Missing heavy atom  CD1 of conf PHE01 in "PHE A 492".
+   Missing heavy atom  CD2 of conf PHE01 in "PHE A 492".
+   Missing heavy atom  CE1 of conf PHE01 in "PHE A 492".
+   Missing heavy atom  CE2 of conf PHE01 in "PHE A 492".
+   Missing heavy atom  CZ  of conf PHE01 in "PHE A 492".
+   Missing heavy atom  C   of conf ILEBK in "ILE A 503".
+   Missing heavy atom  O   of conf ILEBK in "ILE A 503".
+   Missing heavy atom  CG1 of conf ILE01 in "ILE A 503".
+   Missing heavy atom  CG2 of conf ILE01 in "ILE A 503".
+   Missing heavy atom  CD1 of conf ILE01 in "ILE A 503".
+   Missing heavy atom  OXT of conf CTR01 in "CTR A 503".
+   Missing heavy atom  N   of conf LYSBK in "LYS A 507".
+   Missing heavy atom  CA  of conf LYSBK in "LYS A 507".
+   Missing heavy atom  CG  of conf LYS01 in "LYS A 507".
+   Missing heavy atom  CD  of conf LYS01 in "LYS A 507".
+   Missing heavy atom  CE  of conf LYS01 in "LYS A 507".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS A 507".
+   Missing heavy atom  CG  of conf LYS01 in "LYS A 509".
+   Missing heavy atom  CD  of conf LYS01 in "LYS A 509".
+   Missing heavy atom  CE  of conf LYS01 in "LYS A 509".
+   Missing heavy atom  NZ  of conf LYS01 in "LYS A 509".
+   Missing heavy atom  CG  of conf GLU01 in "GLU A 510".
+   Missing heavy atom  CD  of conf GLU01 in "GLU A 510".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU A 510".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU A 510".
+   Missing heavy atom  C   of conf ARGBK in "ARG A 580".
+   Missing heavy atom  O of conf ARGBK in "ARG A 580".
+   Missing heavy atom  OXT of conf CTR01 in "CTR A 580".
+   Missing heavy atom  N   of conf GLUBK in "GLU A 596".
+   Missing heavy atom  CA  of conf GLUBK in "GLU A 596".
+   Missing heavy atom  CG  of conf GLU01 in "GLU A 596".
+   Missing heavy atom  CD  of conf GLU01 in "GLU A 596".
+   Missing heavy atom  OE1 of conf GLU01 in "GLU A 596".
+   Missing heavy atom  OE2 of conf GLU01 in "GLU A 596".
+   Missing heavy atom  CA  of conf THRBK in "THR A 765".
+   Missing heavy atom  C   of conf THRBK in "THR A 765".
+   Missing heavy atom  O   of conf THRBK in "THR A 765".
+   Missing heavy atoms detected.
+   Ignore warning messages if they are in the terminal residues
+   Done
+
+   Find distance clash (<2.000)...
+   d= 1.53: " CA  NTR A 467" to " CB  GLU A 467"
+   d= 1.53: " CA  NTR A 507" to " CB  LYS A 507"
+   d= 1.53: " CA  NTR A 596" to " CB  GLU A 596"
+   Done
+
+   Make connectivity network ...
+   Done.
+
+    Warning! May add heavy atom  CG  onto residue "PHE A0492"
+    Warning! May add heavy atom  CD1 onto residue "PHE A0492"
+    Warning! May add heavy atom  CD2 onto residue "PHE A0492"
+    Warning! May add heavy atom  CE1 onto residue "PHE A0492"
+    Warning! May add heavy atom  CE2 onto residue "PHE A0492"
+    Warning! May add heavy atom  CZ  onto residue "PHE A0492"
+    Warning! May add heavy atom  CG1 onto residue "ILE A0503"
+    Warning! May add heavy atom  CG2 onto residue "ILE A0503"
+    Warning! May add heavy atom  CD1 onto residue "ILE A0503"
+    Warning! May add heavy atom  OXT onto residue "CTR A0503"
+    Warning! May add heavy atom  CG  onto residue "LYS A0507"
+    Warning! May add heavy atom  CD  onto residue "LYS A0507"
+    Warning! May add heavy atom  CE  onto residue "LYS A0507"
+    Warning! May add heavy atom  NZ  onto residue "LYS A0507"
+    Warning! May add heavy atom  CG  onto residue "LYS A0509"
+    Warning! May add heavy atom  CD  onto residue "LYS A0509"
+    Warning! May add heavy atom  CE  onto residue "LYS A0509"
+    Warning! May add heavy atom  NZ  onto residue "LYS A0509"
+    Warning! May add heavy atom  CG  onto residue "GLU A0510"
+    Warning! May add heavy atom  CD  onto residue "GLU A0510"
+    Warning! May add heavy atom  OE1 onto residue "GLU A0510"
+    Warning! May add heavy atom  OE2 onto residue "GLU A0510"
+    Warning! May add heavy atom  OXT onto residue "CTR A0580"
+    Warning! May add heavy atom  CG  onto residue "GLU A0596"
+    Warning! May add heavy atom  CD  onto residue "GLU A0596"
+    Warning! May add heavy atom  OE1 onto residue "GLU A0596"
+    Warning! May add heavy atom  OE2 onto residue "GLU A0596"
+    Warning! May add heavy atom  CA  onto residue "THR A0765"
+    Warning! May add heavy atom  C   onto residue "THR A0765"
+    Warning! May add heavy atom  O   onto residue "THR A0765"
+   8 TORSION parameters were guessed and recorded in file debug.log.
+   Modify and put them into a param file to have the full control.
+   Total time for step1 (premcce) is 0 seconds.
+
+   Output files:
+      step1_out.pdb         will be the input of step 2.
+      head1.lst             rotamer making control file for step 2
+      acc.atm               atom solvent accessible surface
+      acc.res               residue solvent accessible surface
+      head1.lst             rotamer making instruction, used in step2
+
+Step 1 Done.
+
+Step 2. Make multi side chain conformers
+   Load step 1 output file step1_out.pdb...
+   Done
+
+   Rotamer statistics is dynamically updated in file "rot_stat"
+
+   Remove redundant heavy atom conformers in step1_out.pdb
+   0 conformers were deleted.
+   Done
+
+
+   Relax crystal water..
+   Done
+
+   Prepare for rotamer making ...
+   Deleting H atoms...2261 H atoms were deleted.
+   Assigning radii.
+   Estimating Solvent Accessible Surface (SAS).
+   Done.
+
+   Swap atoms...
+   Done
+
+
+
+   Delete duplicate conformers ... 0 conformers deleted.
+   Done
+
+   Prune rotamers by self VDW potential...
+   Creating connectivity table...
+   Computing self VDW potential. It may take a while...
+   Warning! assign_crg(): missing parameter(s), default value is used and saved in debug.log.
+   Pruning rotamers...0 rotamers deleted.
+   Done
+
+
+   Tuning exposed rotamers...
+   Done
+
+
+   Repack side chains 5000 times, remove inaccessible conformers...
+   Computing pairwise LJ potential. This may take a while.
+      Estimated time on AMD 1.6GHz is 2 seconds.
+      Actual time is 0
+   Repacking in progress, see progress.log for details...
+   Done
+
+
+   Skip writing heavy atome rotamer pdb file hvrot.pdb
+   Making ionization conformers...
+   Done
+
+
+   Add H atoms...
+   Done
+
+
+   Relaxation...
+   Start setting up for relaxation.
+   Warning! assign_crg(): missing parameter(s), default value is used and saved in debug.log.
+   Setup for relaxation done.
+   Start relaxation.
+   Done
+
+   Optimizing hydroxyl and water...
+   Total number of atoms 10069
+   Done
+
+
+   Sorting conformers...
+   Done
+
+   Skip writing full rotamer file step2_out.full.
+   Delete duplicate conformers ...
+      19 conformers deleted in this cycle
+   Done
+
+
+
+   Write output...
+   Done
+
+   Total time for step2 (rotamer making) is 416 seconds.
+
+   Output files:
+      step2_out.pdb   : mcce pdb file, the input of step 3
+      head2.lst       : conformer summary
+      step2_out.full  : rotamers without pairwise pruning.
+      hvrot.pdb       : heavy atom rotamers, can be used recursively by step 2
+
+Step 2 Done.
+
+Step 3. Compute energy lookup table
+   Load step 2 output file step2_out.pdb...
+   Done
+
+   Reporting non integer conformer charge ...
+   Passed, no non-integer charges
+   Done
+
+   Creating connectivity table...
+   Done
+
+   Preparing DelPhi runs at epsilon 8.00 ...
+      4 focusing runs required for this protein.
+   Done
+
+   Computing pairwise from conformer 1 to 981 of 981 total conformers
+      see progress.log for progress...
+   Done
+
+   Computing RXN from conformer 1 to 981 of 981 total conformers
+      see progress.log for progress...
+   Done
+
+   Add dummy conformers ... 0 dummy conformers were added.
+   Done
+
+   Making pairwise energy matrices and conformer summary ... 
+   Done
+
+   Skiping writing step 3 rotamer file step3_out.pdb.
+   Total time for step3 (energy calculation) is 3857 seconds.
+
+   Output files (epsilon = 8.00):
+      energies.opp    : energy lookup table, use opp to decode the file
+      head3.lst       : conformer summary
+
+Step 3 Done.
+
+Step 4. Monte Carlo Sampling
+   Load conformer list from file "head3.lst" ...
+   Scaling factors:
+   VDW0  = 0.100:
+   VDW1  = 0.100:
+   VDW   = 0.100:
+   TORS  = 0.100:
+   ELE   = 1.000:
+   DSOLV = 1.000:
+   Done
+
+   Load pairwise interactions ...
+   Done
+
+   Verify self consistancy of conformer flag ...
+   LEU01A0468_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0469_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0472_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01A0474_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01A0476_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0477_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0481_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0483_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0486_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0487_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01A0494_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0495_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0496_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01A0497_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0498_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0500_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0501_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01A0503_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0508_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0511_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0512_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0514_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0515_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0516_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01A0518_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0519_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0523_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0528_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0531_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0532_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01A0535_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01A0538_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01A0541_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01A0546_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01A0547_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01A0549_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0550_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0551_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0553_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0559_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0560_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0562_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01A0563_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0564_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0567_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01A0571_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0572_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0576_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0578_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01A0598_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01A0600_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0603_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0604_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01A0609_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0610_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0611_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01A0614_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0618_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01A0623_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0627_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0628_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0629_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01A0631_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0632_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0633_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0634_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01A0637_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01A0638_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0639_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01A0640_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01A0642_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0643_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01A0645_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0647_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0648_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01A0651_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01A0652_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01A0653_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01A0654_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0665_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0666_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0667_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01A0669_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01A0670_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0671_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0672_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0674_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0675_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01A0676_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0679_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01A0683_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0686_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01A0687_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01A0689_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0691_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0692_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01A0693_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01A0694_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01A0696_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01A0697_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0699_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0703_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0705_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01A0707_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0708_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0709_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0712_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01A0713_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0715_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01A0722_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0725_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0726_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01A0727_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ASN01A0730_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0732_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   MET01A0735_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   TRP01A0740_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ALA01A0742_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0743_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0744_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01A0746_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PRO01A0748_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   PHE01A0750_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   GLN01A0752_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0753_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   VAL01A0754_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0757_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   ILE01A0760_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0761_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   LEU01A0763_001 f 0.00 -> t 1.00 (single conformer treated as fixed)
+   Conformer flags updated due to self consistancy.
+
+   Do titration at 15 points...
+   Detailed progress is in file "mc_out"
+   Monte Carlo set up time: 0 seconds.
+   Titration  1:     4 seconds, biggest stdev of conformer occ = 0.026
+   Titration  2:     4 seconds, biggest stdev of conformer occ = 0.024
+   Titration  3:     3 seconds, biggest stdev of conformer occ = 0.026
+   Titration  4:     2 seconds, biggest stdev of conformer occ = 0.024
+   Titration  5:     2 seconds, biggest stdev of conformer occ = 0.023
+   Titration  6:     4 seconds, biggest stdev of conformer occ = 0.030
+   Titration  7:     4 seconds, biggest stdev of conformer occ = 0.028
+   Titration  8:     2 seconds, biggest stdev of conformer occ = 0.020
+   Titration  9:     1 seconds, biggest stdev of conformer occ = 0.020
+   Titration 10:     2 seconds, biggest stdev of conformer occ = 0.031
+   Titration 11:     2 seconds, biggest stdev of conformer occ = 0.021
+   Titration 12:     2 seconds, biggest stdev of conformer occ = 0.032
+   Titration 13:     3 seconds, biggest stdev of conformer occ = 0.021
+   Titration 14:     6 seconds, biggest stdev of conformer occ = 0.034
+   Titration 15:     3 seconds, biggest stdev of conformer occ = 0.029
+   Done
+
+   Fit titration curves to get pKa/Em ...
+   Done
+
+   Total time on MC: 44 seconds
+
+   Output files:
+      mc_out          : MC progress and convergence.
+      fort.38         : Occupancy table.
+      pK.out          : pKa or Em from titration curve fitting.
+      sum_crg.out     : Summary of residue charges.
+Step 4 Done.
+
